@@ -1,6 +1,6 @@
 const { model, Schema, models, default: mongoose } = require("mongoose");
 
-const ProdcutSchema = new Schema(
+const ProductSchema = new Schema(
   {
     title: { type: String, required: true },
     description: String,
@@ -12,4 +12,4 @@ const ProdcutSchema = new Schema(
   { timestamps: true }
 );
 
-export const Product = models.Product || model("Product", ProdcutSchema);
+export const Product = models.Product || model("Product", ProductSchema);
