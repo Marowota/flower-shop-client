@@ -5,6 +5,7 @@ import Center from "./Center";
 import { useContext } from "react";
 import { CartContext } from "./CartContext";
 
+//#f472b6
 const StyledHeader = styled.header`
   background-color: #f472b6;
 `;
@@ -41,49 +42,55 @@ export default function Header() {
     <div className="bg-gradient-to-r from-cyan-200 via-rose-200 to-pink-200">
       <Center>
         <Wrapper>
-          <Link
-            href={"/"}
-            className="font-semibold font-roboto-slab text-4xl text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-pink-600"
-          >
-            Flower Shop
-          </Link>
-          <div className="flex gap-5 items-center">
+          <div className="flex items-center">
             <Link
               href={"/"}
-              className={pathname === "/" ? activeLink : inactiveLink}
+              className="font-semibold font-roboto-slab text-4xl text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-pink-600"
             >
-              Home
+              Flower Shop
             </Link>
-            <Link
-              href={"/products"}
-              className={
-                pathname.includes("/products") ? activeLink : inactiveLink
-              }
-            >
-              All flowers
-            </Link>
-            <Link
-              href={"/categories"}
-              className={
-                pathname.includes("/categories") ? activeLink : inactiveLink
-              }
-            >
-              Categories
-            </Link>
-            <Link
-              href={"/account"}
-              className={
-                pathname.includes("/account") ? activeLink : inactiveLink
-              }
-            >
-              Account
-            </Link>
-            <Link
-              href={"/cart"}
-              className={pathname.includes("/cart") ? activeLink : inactiveLink}
-            >
-              Cart ({cartProducts.length})
-            </Link>
+          </div>
+          <div className="flex items-center justify-center w-10/12">
+            <div className="flex gap-5">
+              <Link
+                href={"/"}
+                className={pathname === "/" ? activeLink : inactiveLink}
+              >
+                Home
+              </Link>
+              <Link
+                href={"/products"}
+                className={
+                  pathname.includes("/products") ? activeLink : inactiveLink
+                }
+              >
+                All flowers
+              </Link>
+              <Link
+                href={"/categories"}
+                className={
+                  pathname.includes("/categories") ? activeLink : inactiveLink
+                }
+              >
+                Categories
+              </Link>
+              <Link
+                href={"/account"}
+                className={
+                  pathname.includes("/account") ? activeLink : inactiveLink
+                }
+              >
+                Account
+              </Link>
+              <Link
+                href={"/cart"}
+                className={
+                  pathname.includes("/cart") ? activeLink : inactiveLink
+                }
+              >
+                Cart ({cartProducts.length})
+              </Link>
+            </div>
           </div>
         </Wrapper>
       </Center>
