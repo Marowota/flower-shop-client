@@ -6,6 +6,7 @@ import CartIcon from "./icons/Cart";
 import { useContext } from "react";
 import { CartContext } from "./CartContext";
 import Link from "next/link";
+import trimmedText from "@/utils/trimText";
 
 const Bg = styled.div`
   background-color: #f472b6;
@@ -60,10 +61,12 @@ export default function Featured({ product }) {
               </div>
               <div
                 className="text-pink-500 mb-5 pl-1 pr-10"
-                dangerouslySetInnerHTML={{
-                  __html: product?.description.replace(/\n/g, "<br />"),
-                }}
-              ></div>
+                // dangerouslySetInnerHTML={{
+                //   __html: product?.description.replace(/\n/g, "<br />"),
+                // }}
+              >
+                {trimmedText(product?.description)}
+              </div>
               <div className="flex gap-2">
                 <button className="btn-primary text-lg px-4">
                   <Link href={"/product/" + product?._id}>Read more</Link>
