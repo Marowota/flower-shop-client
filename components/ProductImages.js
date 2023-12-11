@@ -37,18 +37,22 @@ export default function ProductImages({ images }) {
   return (
     <>
       <BigImageWrapper>
-        <BigImage src={activeImage} />
-        <ImageButtons>
+        <img
+          src={activeImage}
+          className="w-[330px] h-[320px] rounded-md overflow-hidden"
+        />
+        <div className="flex gap-2 mt-2">
           {images.map((image) => (
-            <ImageButton
+            <div
               key={image}
               active={image === activeImage}
               onClick={() => setActiveImage(image)}
+              className="rounded-md cursor-pointer border-2 overflow-hidden"
             >
-              <Image src={image} alt="" />
-            </ImageButton>
+              <img src={image} alt="" className="w-[45px] h-[45px] " />
+            </div>
           ))}
-        </ImageButtons>
+        </div>
       </BigImageWrapper>
     </>
   );

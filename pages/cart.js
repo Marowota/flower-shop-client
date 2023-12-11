@@ -4,6 +4,7 @@ import Center from "@/components/Center";
 import Header from "@/components/Header";
 import Input from "@/components/Input";
 import Table from "@/components/Table";
+import convertPrice from "@/utils/convertPrice";
 import axios from "axios";
 import { useContext, useEffect, useState } from "react";
 import styled from "styled-components";
@@ -106,7 +107,11 @@ export default function CartPage() {
 
   let total = 0;
   for (const productId of cartProducts) {
-    const price = products.find((p) => p._id === productId)?.price || 0;
+    //const price = products.find((p) => p._id === productId)?.price || 0;
+    const product = products.find((p) => p._id === productId);
+    const price = product
+      ? (product.price * (100 - product.discount)) / 100
+      : 0;
     total += price;
   }
 
@@ -131,12 +136,14 @@ export default function CartPage() {
       <Header />
       <Center>
         <ColumnsWrapper>
-          <Box>
-            <h2>Cart</h2>
+          <div className="box mb-8">
+            <div className="text-2xl font-semibold text-rose-500 mb-2">
+              Cart
+            </div>
             {!cartProducts?.length && <div>Your cart is empty</div>}
 
             {products?.length > 0 && (
-              <Table>
+              <table className="basic">
                 <thead>
                   <tr>
                     <th>Product</th>
@@ -148,53 +155,82 @@ export default function CartPage() {
                   {products.map((product) => (
                     <tr key={product}>
                       <ProductInfoCell>
-                        <ProductImageBox>
-                          <img src={product.images[0]} alt="" />
-                        </ProductImageBox>
-                        {product.title}
+                        <div className="">
+                          <img
+                            src={product.images[0]}
+                            alt=""
+                            className="w-[90px] h-[90px] rounded-lg"
+                          />
+                        </div>
+                        <div className="my-1">{product.title}</div>
                       </ProductInfoCell>
                       <td>
-                        <Button onClick={() => lessOfThisProduct(product._id)}>
-                          -
-                        </Button>
-                        <QuantityLabel>
-                          {
-                            cartProducts.filter((id) => id === product._id)
-                              .length
-                          }
-                        </QuantityLabel>
-                        <Button onClick={() => moreOfThisProduct(product._id)}>
-                          +
-                        </Button>
+                        <div className="flex items-center">
+                          <button
+                            className="border rounded-md w-7 h-7 mx-2 hover:bg-gray-50"
+                            onClick={() => lessOfThisProduct(product._id)}
+                          >
+                            -
+                          </button>
+                          <div className="text-lg p-2">
+                            {
+                              cartProducts.filter((id) => id === product._id)
+                                .length
+                            }
+                          </div>
+                          <button
+                            className="border rounded-md w-7 h-7 mx-2 hover:bg-gray-50"
+                            onClick={() => moreOfThisProduct(product._id)}
+                          >
+                            +
+                          </button>
+                        </div>
                       </td>
                       <td>
-                        $
-                        {cartProducts.filter((id) => id === product._id)
-                          .length * product.price}
+                        <div>
+                          {convertPrice(
+                            (cartProducts.filter((id) => id === product._id)
+                              .length *
+                              (product.price * (100 - product.discount))) /
+                              100
+                          )}{" "}
+                          đ
+                        </div>
+                        <div className="text-base text-gray-400 line-through">
+                          {convertPrice(product.price)} đ
+                        </div>
                       </td>
                     </tr>
                   ))}
                   <tr>
+                    <td>
+                      <div className="text-xl mt-5 font-semibold">Total</div>
+                    </td>
                     <td></td>
-                    <td></td>
-                    <td>${total}</td>
+                    <td>
+                      <div className="text-xl mt-5 font-semibold">
+                        {convertPrice(total)} đ
+                      </div>
+                    </td>
                   </tr>
                 </tbody>
-              </Table>
+              </table>
             )}
-          </Box>
+          </div>
 
           {!!cartProducts?.length && (
-            <Box>
-              <h2>Order information</h2>
-              <Input
+            <div className="box w-[500px] h-[400px]">
+              <div className="text-2xl font-semibold text-rose-500">
+                Order information
+              </div>
+              <input
                 type="text"
                 placeholder="Name"
                 value={name}
                 name="name"
                 onChange={(ev) => setName(ev.target.value)}
               />
-              <Input
+              <input
                 type="text"
                 placeholder="Email"
                 value={email}
@@ -202,14 +238,14 @@ export default function CartPage() {
                 onChange={(ev) => setEmail(ev.target.value)}
               />
               <CityHolder>
-                <Input
+                <input
                   type="text"
                   placeholder="City"
                   value={city}
                   name="city"
                   onChange={(ev) => setCity(ev.target.value)}
                 />
-                <Input
+                <input
                   type="text"
                   placeholder="Postal Code"
                   value={postalCode}
@@ -217,24 +253,24 @@ export default function CartPage() {
                   onChange={(ev) => setPostalCode(ev.target.value)}
                 />
               </CityHolder>
-              <Input
+              <input
                 type="text"
                 placeholder="Street Address"
                 value={streetAddress}
                 name="streetAddress"
                 onChange={(ev) => setStreetAddress(ev.target.value)}
               />
-              <Input
+              <input
                 type="text"
                 placeholder="Country"
                 value={country}
                 name="country"
                 onChange={(ev) => setCountry(ev.target.value)}
               />
-              <Button black block onClick={goToPayment}>
+              <button className="btn-primary p-2 w-full" onClick={goToPayment}>
                 Continue to payment
-              </Button>
-            </Box>
+              </button>
+            </div>
           )}
         </ColumnsWrapper>
       </Center>

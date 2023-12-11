@@ -5,7 +5,7 @@ import { useContext } from "react";
 import { CartContext } from "./CartContext";
 
 const StyledHeader = styled.header`
-  background-color: #222;
+  background-color: #f472b6;
 `;
 
 const Logo = styled(Link)`
@@ -17,6 +17,7 @@ const Wrapper = styled.div`
   display: flex;
   justify-content: space-between;
   padding: 20px 0;
+  font-size: 20px;
 `;
 
 const StyledNav = styled.nav`
@@ -25,26 +26,31 @@ const StyledNav = styled.nav`
 `;
 
 const NavLink = styled(Link)`
-  color: #aaa;
+  color: #f9fafb;
   text-decoration: none;
 `;
 
 export default function Header() {
   const { cartProducts } = useContext(CartContext);
   return (
-    <StyledHeader>
+    <div className="bg-gradient-to-r from-cyan-200 via-rose-200 to-pink-200">
       <Center>
         <Wrapper>
-          <Logo href={"/"}>Ecommerce</Logo>
-          <StyledNav>
-            <NavLink href={"/"}>Home</NavLink>
-            <NavLink href={"/products"}>All products</NavLink>
-            <NavLink href={"/categories"}>Categories</NavLink>
-            <NavLink href={"/account"}>Account</NavLink>
-            <NavLink href={"/cart"}>Cart ({cartProducts.length})</NavLink>
-          </StyledNav>
+          <Link
+            href={"/"}
+            className="font-semibold font-roboto-slab text-4xl text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-pink-600"
+          >
+            Flower Shop
+          </Link>
+          <div className="flex gap-5 text-rose-500 items-center">
+            <Link href={"/"}>Home</Link>
+            <Link href={"/products"}>All flowers</Link>
+            <Link href={"/categories"}>Categories</Link>
+            <Link href={"/account"}>Account</Link>
+            <Link href={"/cart"}>Cart ({cartProducts.length})</Link>
+          </div>
         </Wrapper>
       </Center>
-    </StyledHeader>
+    </div>
   );
 }
