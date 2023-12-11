@@ -66,20 +66,21 @@ const NavButton = styled.button`
 `;
 
 export default function Header() {
-  const inactiveLink = " text-rose-400 hover:text-rose-500";
-  const activeLink = " text-rose-600 font-semibold hover:text-rose-700";
+  const inactiveLink = " text-gray-400 hover:text-rose-500";
+  const activeLink = " text-gray-950 font-semibold hover:text-rose-700";
   const { cartProducts } = useContext(CartContext);
+
   const router = useRouter();
   const { pathname } = router;
   const [mobileNavActive, setMobileNavActive] = useState(false);
   return (
-    <div className="bg-gradient-to-r from-cyan-200 via-rose-200 to-pink-200">
+    <div className="bg-gradient-to-r from-stone-200 via-teal-50 to-stone-200">
       <Center>
         <Wrapper>
           <div className="flex items-center">
             <Link
               href={"/"}
-              className="font-semibold font-roboto-slab text-4xl text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-pink-600"
+              className="font-semibold font-roboto-slab text-4xl text-transparent bg-clip-text bg-gradient-to-r from-stone-950 to-gray-400"
             >
               Flower Shop
             </Link>
