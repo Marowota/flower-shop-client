@@ -87,9 +87,12 @@ export default function Featured({ product }) {
                 {trimmedText(product?.description)}
               </div>
               <div className="flex gap-2">
-                <button className="btn-primary text-lg px-4">
-                  <Link href={"/product/" + product?._id}>Read more</Link>
-                </button>
+                <Link
+                  href={"/product/" + product?._id}
+                  className="btn-primary text-lg px-4 flex items-center"
+                >
+                  Read more
+                </Link>
                 <button
                   className="flex items-center gap-1 border-2 border-pink-400 rounded-md text-pink-600 px-4 py-2 text-lg bg-white hover:ring-ping-400 hover:ring-1 hover:ring-offset-0"
                   onClick={addFeatureToCart}
