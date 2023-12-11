@@ -5,7 +5,7 @@ import Header from "@/components/Header";
 import ProductImages from "@/components/ProductImages";
 import Title from "@/components/Title";
 import WhiteBox from "@/components/WhiteBox";
-import CartIcon from "@/components/icons/Cart";
+import CartIcon from "@/components/icons/CartIcon";
 import { mongooseConnect } from "@/lib/mongoose";
 import { Product } from "@/models/Product";
 import { useContext } from "react";
@@ -13,9 +13,13 @@ import styled from "styled-components";
 
 const ColWrapper = styled.div`
   display: grid;
-  grid-template-columns: 0.8fr 1.2fr;
+  grid-template-columns: 1fr;
+
+  @media screen and (min-width: 768px) {
+    grid-template-columns: 0.8fr 1.2fr;
+  }
   gap: 40px;
-  margin-top: 40px;
+  margin: 40px 0;
 `;
 
 const PriceRow = styled.div`
