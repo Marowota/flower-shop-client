@@ -138,12 +138,14 @@ export default function CartPage() {
       <>
         <Header />
         <Center>
-          <ColumnsWrapper>
-            <Box>
-              <h1>Thanks for your order!</h1>
-              <p>We will email you when your order will be sent.</p>
-            </Box>
-          </ColumnsWrapper>
+          <div className="flex items-center justify-center mt-20">
+            <div className="border-2 rounded-lg flex items-center justify-center flex-col p-5 bg-gradient-to-r from-cyan-50 to-rose-50">
+              <h1 className="title">Thanks for your order!</h1>
+              <p className="font text-lg">
+                We will email you when your order will be sent.
+              </p>
+            </div>
+          </div>
         </Center>
       </>
     );
