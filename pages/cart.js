@@ -8,6 +8,8 @@ import convertPrice from "@/utils/convertPrice";
 import axios from "axios";
 import { useContext, useEffect, useState } from "react";
 import styled from "styled-components";
+import { withSwal } from "react-sweetalert2";
+import { useRouter } from "next/router";
 
 const ColumnsWrapper = styled.div`
   display: grid;
@@ -69,8 +71,8 @@ const CityHolder = styled.div`
   gap: 5px;
 `;
 
-export default function CartPage() {
-  const { cartProducts, addProduct, removeProduct, clearCart } =
+export function CartPage() {
+  const { swal, cartProducts, addProduct, removeProduct, clearCart } =
     useContext(CartContext);
   const [products, setProducts] = useState([]);
   const [name, setName] = useState("");
@@ -133,17 +135,26 @@ export default function CartPage() {
     total += price;
   }
 
+  const router = useRouter();
+
+  const handleBackHomePage = () => {
+    router.push("/");
+  };
+
   if (isSuccess) {
     return (
       <>
         <Header />
         <Center>
           <div className="flex items-center justify-center mt-20">
-            <div className="border-2 rounded-lg flex items-center justify-center flex-col p-5 bg-gradient-to-r from-cyan-50 to-rose-50">
+            <div className="border-2 rounded-lg flex items-center justify-center flex-col p-5 ">
               <h1 className="title">Thanks for your order!</h1>
               <p className="font text-lg">
                 We will email you when your order will be sent.
               </p>
+              <button onClick={handleBackHomePage} className="btn-gradient">
+                Back to home page!
+              </button>
             </div>
           </div>
         </Center>
@@ -297,3 +308,15 @@ export default function CartPage() {
     </>
   );
 }
+
+export default withSwal(
+  ({ swal, cartProducts, addProduct, removeProduct, clearCart }, ref) => (
+    <CartPage
+      swal={swal}
+      cartProducts={cartProducts}
+      addProduct={addProduct}
+      removeProduct={removeProduct}
+      clearCart={clearCart}
+    />
+  )
+);
