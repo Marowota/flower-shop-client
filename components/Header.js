@@ -100,7 +100,7 @@ export default function Header() {
               Flower Shop
             </Link>
           </div>
-          <div className="flex items-center justify-end w-10/12">
+          <div className="flex items-center justify-center w-10/12">
             <div className="flex gap-5">
               <Link
                 href={"/"}
@@ -140,13 +140,13 @@ export default function Header() {
               >
                 Cart ({cartProducts.length})
               </Link>
-              <SideIcons>
-                <Link href={"/search"}>
-                  <Search />
-                </Link>
-              </SideIcons>
             </div>
           </div>
+          <SideIcons>
+            <Link href={"/search"}>
+              <Search />
+            </Link>
+          </SideIcons>
         </Wrapper>
       </Center>
     </div>

@@ -33,7 +33,7 @@ export default function SearchPage() {
     } else {
       setProducts([]);
     }
-  }, [phrase]);
+  }, [phrase, debouncedSearch]);
 
   function searchProducts(phrase) {
     axios

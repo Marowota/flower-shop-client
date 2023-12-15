@@ -9,6 +9,7 @@ import axios from "axios";
 import { useContext, useEffect, useState } from "react";
 import styled from "styled-components";
 import { useRouter } from "next/router";
+import { RevealWrapper } from "next-reveal";
 
 const ColumnsWrapper = styled.div`
   display: grid;
@@ -166,141 +167,148 @@ export default function CartPage() {
       <Header />
       <Center>
         <ColumnsWrapper>
-          <div className="box mb-8">
-            <div className="text-2xl font-semibold text-rose-500 mb-2">
-              Cart
-            </div>
-            {!cartProducts?.length && <div>Your cart is empty</div>}
+          <RevealWrapper delay={0}>
+            <div className="box mb-8">
+              <div className="text-2xl font-semibold text-rose-500 mb-2">
+                Cart
+              </div>
+              {!cartProducts?.length && <div>Your cart is empty</div>}
 
-            {products?.length > 0 && (
-              <table className="basic">
-                <thead>
-                  <tr>
-                    <th>Product</th>
-                    <th>Quantity</th>
-                    <th>Price</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {products.map((product) => (
-                    <tr key={product}>
-                      <ProductInfoCell>
-                        <div className="">
-                          <img
-                            src={product.images[0]}
-                            alt=""
-                            className="w-[90px] h-[90px] rounded-lg"
-                          />
-                        </div>
-                        <div className="my-1">{product.title}</div>
-                      </ProductInfoCell>
-                      <td>
-                        <div className="flex items-center">
-                          <button
-                            className="border rounded-md w-7 h-7 mx-2 hover:bg-gray-50"
-                            onClick={() => lessOfThisProduct(product._id)}
-                          >
-                            -
-                          </button>
-                          <div className="text-lg p-2">
-                            {
-                              cartProducts.filter((id) => id === product._id)
-                                .length
-                            }
+              {products?.length > 0 && (
+                <table className="basic">
+                  <thead>
+                    <tr>
+                      <th>Product</th>
+                      <th>Quantity</th>
+                      <th>Price</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {products.map((product) => (
+                      <tr key={product}>
+                        <ProductInfoCell>
+                          <div className="">
+                            <img
+                              src={product.images[0]}
+                              alt=""
+                              className="w-[90px] h-[90px] rounded-lg"
+                            />
                           </div>
-                          <button
-                            className="border rounded-md w-7 h-7 mx-2 hover:bg-gray-50"
-                            onClick={() => moreOfThisProduct(product._id)}
-                          >
-                            +
-                          </button>
-                        </div>
-                      </td>
+                          <div className="my-1">{product.title}</div>
+                        </ProductInfoCell>
+                        <td>
+                          <div className="flex items-center">
+                            <button
+                              className="border rounded-md w-7 h-7 mx-2 hover:bg-gray-50"
+                              onClick={() => lessOfThisProduct(product._id)}
+                            >
+                              -
+                            </button>
+                            <div className="text-lg p-2">
+                              {
+                                cartProducts.filter((id) => id === product._id)
+                                  .length
+                              }
+                            </div>
+                            <button
+                              className="border rounded-md w-7 h-7 mx-2 hover:bg-gray-50"
+                              onClick={() => moreOfThisProduct(product._id)}
+                            >
+                              +
+                            </button>
+                          </div>
+                        </td>
+                        <td>
+                          <div>
+                            {convertPrice(
+                              (cartProducts.filter((id) => id === product._id)
+                                .length *
+                                (product.price * (100 - product.discount))) /
+                                100
+                            )}{" "}
+                            đ
+                          </div>
+                          <div className="text-base text-gray-400 line-through">
+                            {convertPrice(product.price)} đ
+                          </div>
+                        </td>
+                      </tr>
+                    ))}
+                    <tr>
                       <td>
-                        <div>
-                          {convertPrice(
-                            (cartProducts.filter((id) => id === product._id)
-                              .length *
-                              (product.price * (100 - product.discount))) /
-                              100
-                          )}{" "}
-                          đ
-                        </div>
-                        <div className="text-base text-gray-400 line-through">
-                          {convertPrice(product.price)} đ
+                        <div className="text-xl mt-5 font-semibold">Total</div>
+                      </td>
+                      <td></td>
+                      <td>
+                        <div className="text-xl mt-5 font-semibold">
+                          {convertPrice(total)} đ
                         </div>
                       </td>
                     </tr>
-                  ))}
-                  <tr>
-                    <td>
-                      <div className="text-xl mt-5 font-semibold">Total</div>
-                    </td>
-                    <td></td>
-                    <td>
-                      <div className="text-xl mt-5 font-semibold">
-                        {convertPrice(total)} đ
-                      </div>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            )}
-          </div>
+                  </tbody>
+                </table>
+              )}
+            </div>
+          </RevealWrapper>
 
           {!!cartProducts?.length && (
-            <div className="box w-[500px] h-[400px]">
-              <div className="text-2xl font-semibold text-rose-500">
-                Order information
+            <RevealWrapper delay={100}>
+              <div className="box w-[500px] h-[400px]">
+                <div className="text-2xl font-semibold text-rose-500">
+                  Order information
+                </div>
+                <input
+                  type="text"
+                  placeholder="Name"
+                  value={name}
+                  name="name"
+                  onChange={(ev) => setName(ev.target.value)}
+                />
+                <input
+                  type="text"
+                  placeholder="Email"
+                  value={email}
+                  name="email"
+                  onChange={(ev) => setEmail(ev.target.value)}
+                />
+                <CityHolder>
+                  <input
+                    type="text"
+                    placeholder="City"
+                    value={city}
+                    name="city"
+                    onChange={(ev) => setCity(ev.target.value)}
+                  />
+                  <input
+                    type="text"
+                    placeholder="Postal Code"
+                    value={postalCode}
+                    name="postalCode"
+                    onChange={(ev) => setPostalCode(ev.target.value)}
+                  />
+                </CityHolder>
+                <input
+                  type="text"
+                  placeholder="Street Address"
+                  value={streetAddress}
+                  name="streetAddress"
+                  onChange={(ev) => setStreetAddress(ev.target.value)}
+                />
+                <input
+                  type="text"
+                  placeholder="Country"
+                  value={country}
+                  name="country"
+                  onChange={(ev) => setCountry(ev.target.value)}
+                />
+                <button
+                  className="btn-primary p-2 w-full"
+                  onClick={goToPayment}
+                >
+                  Continue to payment
+                </button>
               </div>
-              <input
-                type="text"
-                placeholder="Name"
-                value={name}
-                name="name"
-                onChange={(ev) => setName(ev.target.value)}
-              />
-              <input
-                type="text"
-                placeholder="Email"
-                value={email}
-                name="email"
-                onChange={(ev) => setEmail(ev.target.value)}
-              />
-              <CityHolder>
-                <input
-                  type="text"
-                  placeholder="City"
-                  value={city}
-                  name="city"
-                  onChange={(ev) => setCity(ev.target.value)}
-                />
-                <input
-                  type="text"
-                  placeholder="Postal Code"
-                  value={postalCode}
-                  name="postalCode"
-                  onChange={(ev) => setPostalCode(ev.target.value)}
-                />
-              </CityHolder>
-              <input
-                type="text"
-                placeholder="Street Address"
-                value={streetAddress}
-                name="streetAddress"
-                onChange={(ev) => setStreetAddress(ev.target.value)}
-              />
-              <input
-                type="text"
-                placeholder="Country"
-                value={country}
-                name="country"
-                onChange={(ev) => setCountry(ev.target.value)}
-              />
-              <button className="btn-primary p-2 w-full" onClick={goToPayment}>
-                Continue to payment
-              </button>
-            </div>
+            </RevealWrapper>
           )}
         </ColumnsWrapper>
       </Center>

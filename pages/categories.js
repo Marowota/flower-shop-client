@@ -4,6 +4,7 @@ import ProductBox from "@/components/ProductBox";
 import Title from "@/components/Title";
 import { Category } from "@/models/Category";
 import { Product } from "@/models/Product";
+import { RevealWrapper } from "next-reveal";
 import Link from "next/link";
 import styled from "styled-components";
 
@@ -61,17 +62,21 @@ export default function CategoriesPage({ mainCategories, categoriesProducts }) {
               </div>
             </div>
             <CategoryGrid>
-              {categoriesProducts[cat._id].map((p) => (
-                <ProductBox {...p} />
+              {categoriesProducts[cat._id].map((p, index) => (
+                <RevealWrapper key={index} delay={index * 50}>
+                  <ProductBox {...p} />
+                </RevealWrapper>
               ))}
-              <div className="flex h-full w-full">
-                <Link
-                  href={"/category/" + cat._id}
-                  className="bg-white shadow-lg rounded-md flex items-center justify-center h-[362px] w-full text-rose-500 font-semibold text-xl hover:bg-pink-50 hover:text-rose-400"
-                >
-                  Show all &rarr;
-                </Link>
-              </div>
+              <RevealWrapper delay={categoriesProducts[cat._id].length * 50}>
+                <div className="flex h-full w-full">
+                  <Link
+                    href={"/category/" + cat._id}
+                    className="bg-white shadow-lg rounded-md flex items-center justify-center h-[362px] w-full text-rose-500 font-semibold text-xl hover:bg-pink-50 hover:text-rose-400"
+                  >
+                    Show all &rarr;
+                  </Link>
+                </div>
+              </RevealWrapper>
             </CategoryGrid>
           </div>
         ))}
