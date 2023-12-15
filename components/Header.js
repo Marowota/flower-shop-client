@@ -5,6 +5,7 @@ import Center from "./Center";
 import { useContext, useState } from "react";
 import { CartContext } from "./CartContext";
 import BarsIcon from "./icons/Bars";
+import Search from "./icons/Search";
 
 //#f472b6
 const StyledHeader = styled.header`
@@ -65,22 +66,36 @@ const NavButton = styled.button`
   }
 `;
 
+const SideIcons = styled.div`
+  display: flex;
+  align-items: center;
+  a {
+    display: inline-block;
+    min-width: 20px;
+    color: red;
+    svg {
+      width: 24px;
+      height: 24px;
+    }
+  }
+`;
+
 export default function Header() {
-  const inactiveLink = " text-gray-400 hover:text-rose-500";
-  const activeLink = " text-gray-950 font-semibold hover:text-rose-700";
+  const inactiveLink = " text-rose-400 hover:text-rose-500";
+  const activeLink = " text-rose-600 font-semibold hover:text-rose-700";
   const { cartProducts } = useContext(CartContext);
 
   const router = useRouter();
   const { pathname } = router;
   const [mobileNavActive, setMobileNavActive] = useState(false);
   return (
-    <div className="bg-gradient-to-r from-stone-200 via-teal-50 to-stone-200">
+    <div className="bg-gradient-to-r from-cyan-200 via-rose-200 to-pink-200">
       <Center>
         <Wrapper>
           <div className="flex items-center">
             <Link
               href={"/"}
-              className="font-semibold font-roboto-slab text-4xl text-transparent bg-clip-text bg-gradient-to-r from-stone-950 to-gray-400"
+              className="font-semibold font-roboto-slab text-4xl text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-pink-600"
             >
               Flower Shop
             </Link>
@@ -125,6 +140,11 @@ export default function Header() {
               >
                 Cart ({cartProducts.length})
               </Link>
+              <SideIcons>
+                <Link href={"/search"}>
+                  <Search />
+                </Link>
+              </SideIcons>
             </div>
           </div>
         </Wrapper>

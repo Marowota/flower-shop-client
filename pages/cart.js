@@ -8,7 +8,6 @@ import convertPrice from "@/utils/convertPrice";
 import axios from "axios";
 import { useContext, useEffect, useState } from "react";
 import styled from "styled-components";
-import { withSwal } from "react-sweetalert2";
 import { useRouter } from "next/router";
 
 const ColumnsWrapper = styled.div`
@@ -71,7 +70,7 @@ const CityHolder = styled.div`
   gap: 5px;
 `;
 
-export function CartPage() {
+export default function CartPage() {
   const { swal, cartProducts, addProduct, removeProduct, clearCart } =
     useContext(CartContext);
   const [products, setProducts] = useState([]);
@@ -309,14 +308,14 @@ export function CartPage() {
   );
 }
 
-export default withSwal(
-  ({ swal, cartProducts, addProduct, removeProduct, clearCart }, ref) => (
-    <CartPage
-      swal={swal}
-      cartProducts={cartProducts}
-      addProduct={addProduct}
-      removeProduct={removeProduct}
-      clearCart={clearCart}
-    />
-  )
-);
+// export default withSwal(
+//   ({ swal, cartProducts, addProduct, removeProduct, clearCart }, ref) => (
+//     <CartPage
+//       swal={swal}
+//       cartProducts={cartProducts}
+//       addProduct={addProduct}
+//       removeProduct={removeProduct}
+//       clearCart={clearCart}
+//     />
+//   )
+// );

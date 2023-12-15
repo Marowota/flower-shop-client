@@ -31,5 +31,5 @@ input {
 }
 
 .btn-gradient {
-  @apply bg-gradient-to-r from-cyan-100 via-ping-100 to-rose-100 p-2 text-white;
+  @apply bg-gradient-to-r from-cyan-100 to-rose-100 p-2 text-white;
 }
