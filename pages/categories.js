@@ -12,7 +12,7 @@ const CategoryGrid = styled.div`
   grid-template-columns: 1fr 1fr;
   gap: 20px;
   @media screen and (min-width: 768px) {
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
   }
 `;
 
@@ -53,22 +53,27 @@ export default function CategoriesPage({ mainCategories, categoriesProducts }) {
       <Header />
       <Center>
         {mainCategories.map((cat) => (
-          <CategoryWrapper key={cat}>
-            <CategoryTitle>
-              <h2>{cat.name}</h2>
-              <div>
+          <div key={cat} className="mb-5">
+            <div className="flex gap-20 my-3 items-center">
+              <div className="title">{cat.name}</div>
+              <div className="text-xl text-rose-600 hover:text-rose-500 hover:underline">
                 <Link href={"/category/" + cat._id}>Show all</Link>
               </div>
-            </CategoryTitle>
+            </div>
             <CategoryGrid>
               {categoriesProducts[cat._id].map((p) => (
                 <ProductBox {...p} />
               ))}
-              <ShowAllSquare href={"/category/" + cat._id}>
-                Show all &rarr;
-              </ShowAllSquare>
+              <div className="flex h-full w-full">
+                <Link
+                  href={"/category/" + cat._id}
+                  className="bg-white shadow-lg rounded-md flex items-center justify-center h-[362px] w-full text-rose-500 font-semibold text-xl hover:bg-pink-50 hover:text-rose-400"
+                >
+                  Show all &rarr;
+                </Link>
+              </div>
             </CategoryGrid>
-          </CategoryWrapper>
+          </div>
         ))}
       </Center>
     </>
@@ -86,7 +91,7 @@ export async function getServerSideProps() {
       .map((c) => c._id.toString());
     const categoriesIds = [mainCatId, ...childCatIds];
     const products = await Product.find({ category: categoriesIds }, null, {
-      limit: 3,
+      limit: 4,
       sort: { _id: -1 },
     });
     categoriesProducts[mainCat._id] = products;

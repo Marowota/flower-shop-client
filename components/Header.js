@@ -85,7 +85,7 @@ export default function Header() {
               Flower Shop
             </Link>
           </div>
-          <div className="flex items-center justify-center w-10/12">
+          <div className="flex items-center justify-end w-10/12">
             <div className="flex gap-5">
               <Link
                 href={"/"}

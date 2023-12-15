@@ -90,7 +90,7 @@ export default function CategoryPage({
       <Header />
       <Center>
         <CategoryHeader>
-          <h1>{category.name}</h1>
+          <div className="title my-5">{category.name}</div>
           <FiltersWrapper>
             {category.properties.map((prop) => (
               <Filter key={prop.name}>

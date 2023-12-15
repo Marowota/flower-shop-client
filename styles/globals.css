@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 .title {
-  @apply text-3xl mt-10 mb-2 font-semibold py-2 text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600;
+  @apply text-3xl mb-2 font-semibold py-2 text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600;
 }
 
 .btn-primary {
@@ -28,4 +28,8 @@ table.basic td {
 
 input {
   @apply w-full p-2 mb-2 border border-rose-200 rounded-md;
+}
+
+.btn-gradient {
+  @apply bg-gradient-to-r from-cyan-100 via-ping-100 to-rose-100 p-2 text-white;
 }

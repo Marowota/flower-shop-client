@@ -11,7 +11,7 @@ export default function ProductPage({ products }) {
     <>
       <Header />
       <Center>
-        <div className="title">All Flowers</div>
+        <div className="title my-5">All Flowers</div>
         <ProductsGrid products={products} />
       </Center>
     </>
