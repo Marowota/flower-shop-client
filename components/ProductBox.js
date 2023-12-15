@@ -76,14 +76,14 @@ export default function ProductBox({
   const { addProduct } = useContext(CartContext);
   const url = "/product/" + _id;
   return (
-    <div className="bg-white shadow-lg rounded-md overflow-hidden hover:shadow-lg hover:cursor-pointer transform hover:-translate-y-0.5 transition-transform ease-in-out duration-200">
+    <div className="bg-white h-full shadow-lg rounded-md overflow-hidden hover:shadow-lg hover:cursor-pointer transform hover:-translate-y-0.5 transition-transform ease-in-out duration-200">
       <Link href={url} className="w-full h-full p-0">
         <div>
           <img src={images?.[0]} alt="" className="w-full h-[250px]" />
         </div>
       </Link>
       <div className="px-5 my-3 text-base">
-        <Link href={url} className="">
+        <Link href={url} className="h-14">
           {title}
         </Link>
         <div className="flex justify-between">
