@@ -2,10 +2,14 @@ import styled from "styled-components";
 import Button from "./Button";
 import CartIcon from "./icons/CartIcon";
 import Link from "next/link";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { CartContext } from "./CartContext";
 import convertPrice from "@/utils/convertPrice";
 import FlyingButton from "./FlyingButton";
+import HeartOutlineIcon from "./icons/HeartOutlineIcon";
+import HeartSolidIcon from "./icons/HeartSolidIcon";
+import axios from "axios";
+import next from "next";
 
 const ProductWrapper = styled.div`
   width: 270px;
@@ -72,13 +76,44 @@ export default function ProductBox({
   price,
   images,
   discount,
+  wished = false,
+  onRemoveFromWishlist = () => {},
 }) {
   const { addProduct } = useContext(CartContext);
   const url = "/product/" + _id;
+  const [isWished, setIsWished] = useState(wished);
+  function addToWishlist(e) {
+    e.preventDefault();
+    e.stopPropagation();
+    const nextValue = !isWished;
+    if (nextValue === false && onRemoveFromWishlist) {
+      onRemoveFromWishlist(_id);
+    }
+    axios
+      .post("/api/wishlist", {
+        product: _id,
+      })
+      .then(() => {});
+    setIsWished(nextValue);
+  }
   return (
     <div className="bg-white h-full shadow-lg rounded-md overflow-hidden hover:shadow-lg hover:cursor-pointer transform hover:-translate-y-0.5 transition-transform ease-in-out duration-200">
-      <Link href={url} className="w-full h-full p-0">
+      <Link href={url} className="w-full h-full p-0 relative">
         <div>
+          <button
+            className={
+              isWished
+                ? "absolute top-2 right-2 w-10 h-10 p-[10px] bg-white cursor-pointer rounded-full text-red-600"
+                : "absolute top-2 right-2 w-10 h-10 p-[10px] bg-white cursor-pointer rounded-full text-black"
+            }
+            onClick={addToWishlist}
+          >
+            {isWished ? (
+              <HeartSolidIcon className="w-full h-full" />
+            ) : (
+              <HeartOutlineIcon className="w-full h-full" />
+            )}
+          </button>
           <img src={images?.[0]} alt="" className="w-full h-[250px]" />
         </div>
       </Link>
