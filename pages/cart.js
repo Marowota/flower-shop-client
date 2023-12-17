@@ -82,6 +82,7 @@ export default function CartPage() {
   const [streetAddress, setStreetAddress] = useState("");
   const [country, setCountry] = useState("");
   const [isSuccess, setIsSuccess] = useState(false);
+  const [shippingFee, setShippingFee] = useState(null);
   useEffect(() => {
     if (cartProducts.length > 0) {
       axios.post("/api/cart", { ids: cartProducts }).then((response) => {
@@ -100,6 +101,9 @@ export default function CartPage() {
       setIsSuccess(true);
       clearCart();
     }
+    axios.get("/api/settings?name=shippingFee").then((res) => {
+      setShippingFee(res.data.value);
+    });
   }, []);
 
   function moreOfThisProduct(id) {
@@ -125,14 +129,14 @@ export default function CartPage() {
     }
   }
 
-  let total = 0;
+  let productsTotal = 0;
   for (const productId of cartProducts) {
     //const price = products.find((p) => p._id === productId)?.price || 0;
     const product = products.find((p) => p._id === productId);
     const price = product
       ? (product.price * (100 - product.discount)) / 100
       : 0;
-    total += price;
+    productsTotal += price;
   }
 
   const router = useRouter();
@@ -180,7 +184,7 @@ export default function CartPage() {
                     <tr>
                       <th>Product</th>
                       <th>Quantity</th>
-                      <th>Price</th>
+                      <th className="text-right">Price</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -194,7 +198,7 @@ export default function CartPage() {
                               className="w-[90px] h-[90px] rounded-lg"
                             />
                           </div>
-                          <div className="my-1">{product.title}</div>
+                          <div className="my-1 text-xl">{product.title}</div>
                         </ProductInfoCell>
                         <td>
                           <div className="flex items-center">
@@ -218,7 +222,7 @@ export default function CartPage() {
                             </button>
                           </div>
                         </td>
-                        <td>
+                        <td className="text-right">
                           <div>
                             {convertPrice(
                               (cartProducts.filter((id) => id === product._id)
@@ -236,13 +240,29 @@ export default function CartPage() {
                     ))}
                     <tr>
                       <td>
-                        <div className="text-xl mt-5 font-semibold">Total</div>
+                        <div className="text-xl my-[15px]">Products</div>
                       </td>
                       <td></td>
+                      <td className="text-right text-xl">
+                        {convertPrice(productsTotal)} đ
+                      </td>
+                    </tr>
+                    <tr>
                       <td>
-                        <div className="text-xl mt-5 font-semibold">
-                          {convertPrice(total)} đ
-                        </div>
+                        <div className="text-xl my-[15px]">Shipping</div>
+                      </td>
+                      <td></td>
+                      <td className="text-right text-xl">
+                        {convertPrice(parseInt(shippingFee))} đ
+                      </td>
+                    </tr>
+                    <tr className="font-bold">
+                      <td>
+                        <div className="text-xl my-[15px]">Total</div>
+                      </td>
+                      <td></td>
+                      <td className="text-right text-xl">
+                        {convertPrice(productsTotal + parseInt(shippingFee))} đ
                       </td>
                     </tr>
                   </tbody>
