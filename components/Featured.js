@@ -125,11 +125,13 @@ export default function Featured({ product }) {
           </div>
           <div className="col-span-1">
             <RevealWrapper delay={0}>
-              <img
-                src="https://manh-nextjs-ecommerce.s3.amazonaws.com/1702291255423.png"
-                alt=""
-                className="h-[400px] rounded-lg"
-              />
+              <div className="flex items-center justify-center">
+                <img
+                  src={product.images?.[0]}
+                  alt=""
+                  className="h-[400px] rounded-lg"
+                />
+              </div>
             </RevealWrapper>
           </div>
         </div>
