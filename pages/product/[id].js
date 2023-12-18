@@ -1,11 +1,8 @@
-import Button from "@/components/Button";
 import { CartContext } from "@/components/CartContext";
 import Center from "@/components/Center";
 import Header from "@/components/Header";
 import ProductImages from "@/components/ProductImages";
-import Title from "@/components/Title";
-import WhiteBox from "@/components/WhiteBox";
-import CartIcon from "@/components/icons/CartIcon";
+import ProductReviews from "@/components/ProductReviews";
 import { mongooseConnect } from "@/lib/mongoose";
 import { Product } from "@/models/Product";
 import convertPrice from "@/utils/convertPrice";
@@ -68,7 +65,7 @@ export default function ProductPage({ product }) {
               </div>
               <div>
                 <button
-                  className="flex items-center gap-1 border-2 border-pink-400 rounded-md text-pink-600 px-4 py-2 text-lg bg-white hover:ring-ping-400 hover:ring-1 hover:ring-offset-0 hover:bg-pink-400 hover:text-white"
+                  className="flex items-center gap-1 border-2 border-pink-400 rounded-md text-pink-600 px-4 py-2 text-lg bg-white hover:ring-ping-400 hover:ring-offset-0 hover:bg-pink-400 hover:text-white"
                   onClick={() => {
                     addProduct(product._id);
                   }}
@@ -93,6 +90,10 @@ export default function ProductPage({ product }) {
             </div>
           </div>
         </RevealWrapper>
+
+        <div className="m-10">
+          <ProductReviews product={product} />
+        </div>
       </Center>
     </>
   );
