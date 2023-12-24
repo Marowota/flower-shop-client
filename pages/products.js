@@ -14,7 +14,9 @@ export default function ProductPage({ products, wishedProducts }) {
     <>
       <Header />
       <Center>
-        <div className="title my-1">All Flowers</div>
+        <div className="font-semibold text-2xl py-2 my-2 text-rose-600">
+          All Flowers
+        </div>
         <ProductsGrid products={products} wishedProducts={wishedProducts} />
       </Center>
     </>

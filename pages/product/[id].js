@@ -38,7 +38,7 @@ export default function ProductPage({ product }) {
       <Header />
       <Center>
         <RevealWrapper delay={0}>
-          <div className="grid grid-cols-3 m-10 shadow-md border rounded-lg p-10">
+          <div className="grid grid-cols-3 m-10 box shadow-md border rounded-lg p-10">
             <div className="col-span-1">
               <ProductImages images={product.images} />
             </div>
@@ -65,7 +65,7 @@ export default function ProductPage({ product }) {
               </div>
               <div>
                 <button
-                  className="flex items-center gap-1 border-2 border-pink-400 rounded-md text-pink-600 px-4 py-2  bg-white hover:ring-ping-400 hover:ring-offset-0 hover:bg-pink-400 hover:text-white"
+                  className="flex items-center gap-1 border-2 border-pink-400 rounded-md text-pink-600 px-4 py-1  bg-white hover:ring-ping-400 hover:ring-offset-0 hover:bg-pink-400 hover:text-white"
                   onClick={() => {
                     addProduct(product._id);
                   }}

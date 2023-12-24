@@ -97,7 +97,7 @@ export default function ProductBox({
     setIsWished(nextValue);
   }
   return (
-    <div className="bg-white h-full w-full shadow-lg rounded-md overflow-hidden hover:shadow-lg hover:cursor-pointer transform hover:-translate-y-px transition-transform ease-in-out duration-200">
+    <div className="bg-white h-full w-full shadow-md rounded-md overflow-hidden hover:shadow-lg hover:cursor-pointer transform hover:-translate-y-px transition-transform ease-in-out duration-200">
       <Link href={url} className="w-full h-full p-0 relative">
         <div>
           <button

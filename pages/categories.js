@@ -15,7 +15,7 @@ import { mongooseConnect } from "@/lib/mongoose";
 const CategoryGrid = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 20px;
+  gap: 10px;
   @media screen and (min-width: 768px) {
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
   }
@@ -64,7 +64,9 @@ export default function CategoriesPage({
         {mainCategories.map((cat) => (
           <div key={cat} className="mb-5">
             <div className="flex gap-20 my-3 items-center">
-              <div className="title">{cat.name}</div>
+              <div className="font-semibold text-2xl py-2 text-rose-600">
+                {cat.name}
+              </div>
               <div className="text-lg text-rose-600 hover:text-rose-500 hover:underline">
                 <Link href={"/category/" + cat._id}>Show all</Link>
               </div>
@@ -79,7 +81,7 @@ export default function CategoriesPage({
                 <div className="flex h-full w-full">
                   <Link
                     href={"/category/" + cat._id}
-                    className="bg-white shadow-lg rounded-md flex items-center justify-center h-full w-full text-rose-500 font-semibold text-xl hover:bg-pink-50 hover:text-rose-400"
+                    className="bg-white shadow-md rounded-md flex items-center justify-center h-full w-full text-rose-500 font-semibold text-xl hover:shadow-lg hover:bg-pink-50 hover:text-rose-400"
                   >
                     Show all &rarr;
                   </Link>

@@ -23,7 +23,7 @@ table.basic td {
 }
 
 .box {
-  @apply shadow-md rounded-md p-6;
+  @apply shadow-md rounded-md p-6 bg-white;
 }
 
 input {

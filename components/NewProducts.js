@@ -11,7 +11,9 @@ const Title = styled.h2`
 export default function NewProducts({ products, wishedProducts }) {
   return (
     <Center>
-      <div className="title my-5">New Products</div>
+      <div className="font-semibold text-2xl py-2 my-2 text-rose-700">
+        New Products
+      </div>
       <ProductsGrid products={products} wishedProducts={wishedProducts} />
     </Center>
   );
