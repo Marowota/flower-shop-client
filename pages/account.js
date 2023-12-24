@@ -126,7 +126,7 @@ export default function AccountPage() {
                     {!wishlistLoaded && <Spinner fullWidth={true} />}
                     {wishlistLoaded && (
                       <>
-                        <div className="grid grid-cols-3 gap-5">
+                        <div className="grid grid-cols-3 gap-2">
                           {wishedProducts.length > 0 &&
                             wishedProducts.map((wp) => (
                               <ProductBox
