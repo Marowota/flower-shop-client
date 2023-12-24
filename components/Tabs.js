@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 const StyledTabs = styled.div`
   display: flex;
-  gap: 10px;
+  gap: 30px;
   margin-bottom: 10px;
 `;
 const StyledTab = styled.span`
