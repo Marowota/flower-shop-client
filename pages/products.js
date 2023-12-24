@@ -16,7 +16,10 @@ export default function ProductPage({ products, wishedProducts }) {
       <Meta title="All products" />
       <Header />
       <Center>
-        <div className="font-semibold text-2xl py-2 my-2 text-rose-600">
+        <div
+          className="font-semibold text-2xl py-2 my-2"
+          style={{ color: "#5D3D2E" }}
+        >
           All Flowers
         </div>
         <ProductsGrid products={products} wishedProducts={wishedProducts} />

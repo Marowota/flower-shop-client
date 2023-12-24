@@ -73,16 +73,22 @@ export default function Featured({ product }) {
   }
   return (
     <Center>
-      <div className="bg-featured-bg bg-cover bg-no-repeat rounded-md mt-[50px] py-5">
+      <div
+        className=" bg-cover bg-no-repeat rounded-md mt-[50px] py-5"
+        style={{ backgroundColor: "#F5F5F5" }}
+      >
         <div className="grid grid-cols-3 p-5">
           <div className="flex items-center justify-around col-span-2 mx-11">
             <div>
               <RevealWrapper origin={"left"} delay={0}>
-                <div className="font-bold font-roboto-slab text-transparent text-5xl bg-clip-text bg-gradient-to-r from-rose-500 to-purple-600 py-5">
+                <div
+                  className="font-bold font-roboto-slab text-transparent text-5xl bg-clip-text bg-gradient-to-r py-5"
+                  style={{ color: "#5D3D2E" }}
+                >
                   {product?.title}
                 </div>
                 <div
-                  className="text-pink-500 mb-5 pl-1 pr-10"
+                  className="mb-5 pl-1 pr-10"
                   dangerouslySetInnerHTML={{
                     __html: trimmedText(
                       product?.description.replace(/\n/g, "<br />")
@@ -95,6 +101,7 @@ export default function Featured({ product }) {
                   <Link
                     href={"/product/" + product?._id}
                     className="btn-primary px-4 flex items-center"
+                    style={{ backgroundColor: "#5D3D2E" }}
                   >
                     Read more
                   </Link>

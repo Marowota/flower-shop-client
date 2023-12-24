@@ -2,11 +2,13 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import styled from "styled-components";
 import Center from "./Center";
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { CartContext } from "./CartContext";
 import BarsIcon from "./icons/Bars";
 import Search from "./icons/Search";
 
+// #E1CFBB
+// #5D3D2E
 //#f472b6
 const StyledHeader = styled.header`
   background-color: #f472b6;
@@ -72,7 +74,7 @@ const SideIcons = styled.div`
   a {
     display: inline-block;
     min-width: 20px;
-    color: red;
+    color: #5d3d2e;
     svg {
       width: 24px;
       height: 24px;
@@ -81,21 +83,30 @@ const SideIcons = styled.div`
 `;
 
 export default function Header() {
-  const inactiveLink = " text-rose-400 hover:text-rose-500";
-  const activeLink = " text-rose-600 font-semibold hover:text-rose-700";
+  const inactiveLink = "#5D3D2E";
+  const activeLink = "#ffffff";
   const { cartProducts } = useContext(CartContext);
 
   const router = useRouter();
   const { pathname } = router;
   const [mobileNavActive, setMobileNavActive] = useState(false);
+  const { linkColor, setLinkColor } = useState();
+
+  const checkIsActive = (path) => {
+    return path === pathname;
+  };
+
+  console.log(pathname);
+
   return (
-    <div className="bg-gradient-to-r from-cyan-200 via-rose-200 to-pink-200">
+    <div style={{ backgroundColor: "#E1CFBB" }}>
       <Center>
         <Wrapper>
           <div className="flex items-center ml-2">
             <Link
               href={"/"}
-              className="flex w-max items-center gap-2 font-semibold font-roboto-slab text-3xl text-transparent bg-clip-text bg-gradient-to-r from-rose-500 to-purple-600"
+              className="flex w-max items-center gap-2 font-semibold font-roboto-slab text-3xl text-transparent bg-clip-text bg-gradient-to-r "
+              style={{ color: "#5D3D2E" }}
             >
               <div className="flex items-center justify-center">
                 <img
@@ -110,39 +121,43 @@ export default function Header() {
             <div className="flex gap-5">
               <Link
                 href={"/"}
-                className={pathname === "/" ? activeLink : inactiveLink}
+                style={{
+                  color: checkIsActive("/") ? activeLink : inactiveLink,
+                }}
               >
                 Home
               </Link>
               <Link
                 href={"/products"}
-                className={
-                  pathname.includes("/products") ? activeLink : inactiveLink
-                }
+                style={{
+                  color: checkIsActive("/products") ? activeLink : inactiveLink,
+                }}
               >
                 All flowers
               </Link>
               <Link
                 href={"/categories"}
-                className={
-                  pathname.includes("/categories") ? activeLink : inactiveLink
-                }
+                style={{
+                  color: checkIsActive("/categories")
+                    ? activeLink
+                    : inactiveLink,
+                }}
               >
                 Categories
               </Link>
               <Link
                 href={"/account"}
-                className={
-                  pathname.includes("/account") ? activeLink : inactiveLink
-                }
+                style={{
+                  color: checkIsActive("/account") ? activeLink : inactiveLink,
+                }}
               >
                 Account
               </Link>
               <Link
                 href={"/cart"}
-                className={
-                  pathname.includes("/cart") ? activeLink : inactiveLink
-                }
+                style={{
+                  color: checkIsActive("/cart") ? activeLink : inactiveLink,
+                }}
               >
                 Cart ({cartProducts.length})
               </Link>

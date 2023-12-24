@@ -7,7 +7,7 @@
 }
 
 .btn-primary {
-  @apply bg-rose-500 text-white rounded-md hover:bg-rose-400;
+  @apply text-white rounded-md hover:bg-rose-400;
 }
 
 table.basic {

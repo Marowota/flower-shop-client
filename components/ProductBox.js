@@ -118,12 +118,12 @@ export default function ProductBox({
         </div>
       </Link>
       <div className="px-5 my-3 text-base flex flex-col">
-        <Link href={url} className="h-12">
+        <Link href={url} className="h-12 font-bold">
           {title}
         </Link>
         <div className="flex justify-between">
           <Link href={url}>
-            <div className="text-2xl font-bold text-rose-600">
+            <div className="text-1xl font-bold " style={{ color: "#5D3D2E" }}>
               {convertPrice((price * (100 - discount)) / 100)} đ
             </div>
           </Link>
@@ -153,7 +153,10 @@ export default function ProductBox({
             <div className="text-sm text-gray-400 line-through">
               {convertPrice(price)} đ
             </div>
-            <div className="text-sm flex items-center justify-center text-rose-500 font-semibold rounded-md px-1 bg-rose-50">
+            <div
+              className="text-sm flex items-center justify-center font-semibold rounded-md px-1 bg-rose-50"
+              style={{ color: "#5D3D2E" }}
+            >
               - {discount}%
             </div>
           </div>

@@ -4,26 +4,28 @@ import { primary } from "@/lib/colors";
 import { CartContext } from "@/components/CartContext";
 import { useContext, useEffect, useRef, useState } from "react";
 
+// #E1CFBB
+// #5D3D2E
 const FlyingButtonWrapper = styled.div`
   button {
     ${ButtonStyle};
     ${(props) =>
       props.main
         ? `
-      background-color: ${primary};
-      color:white;
+      background-color: #ffffff;
+      color:#5D3D2E;
     `
         : `
       background-color: transparent;
-      border: 1px solid ${primary};
-      color:${primary};
+      border: 1px solid #5D3D2E;
+      color:#5D3D2E;
     `}
     ${(props) =>
       props.white &&
       `
       background-color: #ffffff;
-      color: #F43F5E;
-      border: 1px solid #F43F5E;
+      color: #5D3D2E;
+      border: 1px solid #5D3D2E;
       font-weight:500;
     `}
   }
