@@ -10,6 +10,7 @@ import { useContext, useEffect, useState } from "react";
 import styled from "styled-components";
 import { useRouter } from "next/router";
 import { RevealWrapper } from "next-reveal";
+import Meta from "@/components/Meta";
 
 const ColumnsWrapper = styled.div`
   display: grid;
@@ -168,6 +169,7 @@ export default function CartPage() {
 
   return (
     <>
+      <Meta title="Cart" />
       <Header />
       <Center>
         <ColumnsWrapper>

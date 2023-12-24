@@ -126,7 +126,7 @@ export default function ProductReviews({ product }) {
             {reviews.length > 0 &&
               reviews.map((review, index) => (
                 <div key={index}>
-                  <ReviewWrapper>
+                  <div className="mt-2 border-t-2 p-2">
                     <div className="flex justify-between">
                       <StarsRating
                         size="sm"
@@ -141,7 +141,7 @@ export default function ProductReviews({ product }) {
                     </div>
                     <div className="text-lg font-semibold">{review.title}</div>
                     <div className="text-base my-1">{review.description}</div>
-                  </ReviewWrapper>
+                  </div>
                 </div>
               ))}
           </div>

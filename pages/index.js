@@ -7,6 +7,7 @@ import { WishedProduct } from "@/models/WishedProduct";
 import { getServerSession } from "next-auth";
 import { authOptions } from "./api/auth/[...nextauth]";
 import { Setting } from "@/models/Setting";
+import Meta from "@/components/Meta";
 
 export default function HomePage({
   featuredProduct,
@@ -16,6 +17,7 @@ export default function HomePage({
   //console.log({ newProducts });
   return (
     <div>
+      <Meta title="Home" />
       <Header />
       <Featured product={featuredProduct} />
       <NewProducts products={newProducts} wishedProducts={wishedNewProducts} />

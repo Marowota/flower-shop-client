@@ -11,6 +11,7 @@ import styled from "styled-components";
 import { authOptions } from "./api/auth/[...nextauth]";
 import { WishedProduct } from "@/models/WishedProduct";
 import { mongooseConnect } from "@/lib/mongoose";
+import Meta from "@/components/Meta";
 
 const CategoryGrid = styled.div`
   display: grid;
@@ -59,6 +60,7 @@ export default function CategoriesPage({
 }) {
   return (
     <>
+      <Meta title="Categories" />
       <Header />
       <Center>
         {mainCategories.map((cat) => (

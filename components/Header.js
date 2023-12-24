@@ -95,8 +95,14 @@ export default function Header() {
           <div className="flex items-center ml-2">
             <Link
               href={"/"}
-              className="font-semibold font-roboto-slab text-3xl text-transparent bg-clip-text bg-gradient-to-r from-rose-500 to-purple-600"
+              className="flex w-max items-center gap-2 font-semibold font-roboto-slab text-3xl text-transparent bg-clip-text bg-gradient-to-r from-rose-500 to-purple-600"
             >
+              <div className="flex items-center justify-center">
+                <img
+                  src="https://manh-nextjs-ecommerce.s3.amazonaws.com/1703413923368.png"
+                  className="w-12 h-12 rounded-full"
+                />
+              </div>
               Flower Shop
             </Link>
           </div>

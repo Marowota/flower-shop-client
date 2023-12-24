@@ -1,6 +1,7 @@
 import { CartContext } from "@/components/CartContext";
 import Center from "@/components/Center";
 import Header from "@/components/Header";
+import Meta from "@/components/Meta";
 import ProductImages from "@/components/ProductImages";
 import ProductReviews from "@/components/ProductReviews";
 import { mongooseConnect } from "@/lib/mongoose";
@@ -35,6 +36,7 @@ export default function ProductPage({ product }) {
   const { addProduct } = useContext(CartContext);
   return (
     <>
+      <Meta title={product.title} />
       <Header />
       <Center>
         <RevealWrapper delay={0}>

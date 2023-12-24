@@ -7,6 +7,7 @@ import axios from "axios";
 import ProductsGrid from "@/components/ProductsGrid";
 import { debounce } from "lodash";
 import Spinner from "@/components/Spinner";
+import Meta from "@/components/Meta";
 
 const SearchInput = styled(Input)`
   padding: 10px 10px;
@@ -45,6 +46,7 @@ export default function SearchPage() {
   }
   return (
     <>
+      <Meta title="Search" />
       <Header />
       <Center>
         <div className="sticky top-[68px] my-[25px] px-[5px]">

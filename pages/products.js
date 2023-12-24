@@ -8,10 +8,12 @@ import { WishedProduct } from "@/models/WishedProduct";
 import { getServerSession } from "next-auth";
 import { authOptions } from "./api/auth/[...nextauth]";
 import styled from "styled-components";
+import Meta from "@/components/Meta";
 
 export default function ProductPage({ products, wishedProducts }) {
   return (
     <>
+      <Meta title="All products" />
       <Header />
       <Center>
         <div className="font-semibold text-2xl py-2 my-2 text-rose-600">

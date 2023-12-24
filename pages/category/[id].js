@@ -1,5 +1,6 @@
 import Center from "@/components/Center";
 import Header from "@/components/Header";
+import Meta from "@/components/Meta";
 import ProductsGrid from "@/components/ProductsGrid";
 import Spinner from "@/components/Spinner";
 import Title from "@/components/Title";
@@ -87,6 +88,7 @@ export default function CategoryPage({
 
   return (
     <>
+      <Meta title={category.name} />
       <Header />
       <Center>
         <CategoryHeader>

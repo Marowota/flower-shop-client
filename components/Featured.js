@@ -73,7 +73,7 @@ export default function Featured({ product }) {
   }
   return (
     <Center>
-      <div className="bg-featured-bg bg-cover bg-no-repeat rounded-md mt-7 py-5">
+      <div className="bg-featured-bg bg-cover bg-no-repeat rounded-md mt-[50px] py-5">
         <div className="grid grid-cols-3 p-5">
           <div className="flex items-center justify-around col-span-2 mx-11">
             <div>
