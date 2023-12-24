@@ -65,7 +65,7 @@ export default function CategoriesPage({
           <div key={cat} className="mb-5">
             <div className="flex gap-20 my-3 items-center">
               <div className="title">{cat.name}</div>
-              <div className="text-xl text-rose-600 hover:text-rose-500 hover:underline">
+              <div className="text-lg text-rose-600 hover:text-rose-500 hover:underline">
                 <Link href={"/category/" + cat._id}>Show all</Link>
               </div>
             </div>
@@ -75,7 +75,7 @@ export default function CategoriesPage({
                   <ProductBox {...p} wished={wishedProducts.includes(p._id)} />
                 </RevealWrapper>
               ))}
-              <RevealWrapper delay={categoriesProducts[cat._id].length * 2}>
+              <RevealWrapper delay={categoriesProducts[cat._id].length * 1}>
                 <div className="flex h-full w-full">
                   <Link
                     href={"/category/" + cat._id}
