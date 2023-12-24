@@ -73,7 +73,7 @@ export default function Featured({ product }) {
   }
   return (
     <Center>
-      <div className="bg-featured-bg bg-cover bg-no-repeat rounded-[15px] mt-7 p-5">
+      <div className="bg-featured-bg bg-cover bg-no-repeat rounded-[15px] mt-7 py-5">
         <div className="grid grid-cols-3 p-5">
           <div className="flex items-center justify-around col-span-2">
             <div>
@@ -83,11 +83,13 @@ export default function Featured({ product }) {
                 </div>
                 <div
                   className="text-pink-500 mb-5 pl-1 pr-10"
-                  // dangerouslySetInnerHTML={{
-                  //   __html: product?.description.replace(/\n/g, "<br />"),
-                  // }}
+                  dangerouslySetInnerHTML={{
+                    __html: trimmedText(
+                      product?.description.replace(/\n/g, "<br />")
+                    ),
+                  }}
                 >
-                  {trimmedText(product?.description)}
+                  {}
                 </div>
                 <div className="flex gap-2">
                   <Link

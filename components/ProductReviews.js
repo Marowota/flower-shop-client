@@ -32,7 +32,7 @@ const ColsWrapper = styled.div`
 
 const ReviewWrapper = styled.div`
   margin-bottom: 10px;
-  border-top: 1px solid #eee;
+  border-top: 2px solid #eee;
   padding: 10px 0;
   h3 {
     margin: 3px 0;
@@ -89,11 +89,13 @@ export default function ProductReviews({ product }) {
   }
   return (
     <div>
-      <Title>Reviews</Title>
+      <div className="title">Reviews</div>
       <ColsWrapper>
         <div>
-          <WhiteBox className="shadow-md">
-            <Subtitles>Add a review</Subtitles>
+          <div className="box flex flex-col gap-1">
+            <div className="text-2xl font-semibold text-rose-500">
+              Add a review
+            </div>
             <div>
               <StarsRating onChange={setStars} />
             </div>
@@ -107,14 +109,18 @@ export default function ProductReviews({ product }) {
               onChange={(e) => setDescription(e.target.value)}
               placeholder="Was it good? Pros? Cons?"
             />
-            <Button primary onClick={submitReview}>
-              Submit your review
-            </Button>
-          </WhiteBox>
+            <div>
+              <button className="btn-primary p-2" onClick={submitReview}>
+                Submit your review
+              </button>
+            </div>
+          </div>
         </div>
         <div>
-          <WhiteBox className="shadow-md">
-            <Subtitles>All reviews</Subtitles>
+          <div className="box">
+            <div className="text-2xl font-semibold text-rose-500">
+              All reviews
+            </div>
             {reviewsLoading && <Spinner fullWidth={true} />}
             {reviews.length === 0 && <p>No reviews</p>}
             {reviews.length > 0 &&
@@ -136,7 +142,7 @@ export default function ProductReviews({ product }) {
                   </ReviewWrapper>
                 </div>
               ))}
-          </WhiteBox>
+          </div>
         </div>
       </ColsWrapper>
     </div>

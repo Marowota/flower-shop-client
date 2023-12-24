@@ -97,7 +97,7 @@ export default function ProductBox({
     setIsWished(nextValue);
   }
   return (
-    <div className="bg-white h-full w-full shadow-lg rounded-md overflow-hidden hover:shadow-lg hover:cursor-pointer transform hover:-translate-y-0.5 transition-transform ease-in-out duration-200">
+    <div className="bg-white h-full w-full shadow-lg rounded-md overflow-hidden hover:shadow-lg hover:cursor-pointer transform hover:-translate-y-px transition-transform ease-in-out duration-200">
       <Link href={url} className="w-full h-full p-0 relative">
         <div>
           <button
@@ -123,7 +123,7 @@ export default function ProductBox({
         </Link>
         <div className="flex justify-between">
           <Link href={url}>
-            <div className="text-2xl font-bold text-rose-700">
+            <div className="text-2xl font-bold text-rose-600">
               {convertPrice((price * (100 - discount)) / 100)} đ
             </div>
           </Link>
@@ -134,7 +134,7 @@ export default function ProductBox({
               viewBox="0 0 24 24"
               strokeWidth={1.5}
               stroke="currentColor"
-              className="w-6 h-6 hover:w-7 hover:h-7"
+              className="w-6 h-6 hover:fill-current hover:text-rose-600"
             >
               <path
                 strokeLinecap="round"

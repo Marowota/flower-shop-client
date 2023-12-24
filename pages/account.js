@@ -31,7 +31,7 @@ const CityHolder = styled.div`
 
 const WishedProductsGrid = styled.div`
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
   gap: 40px;
 `;
 
@@ -124,7 +124,7 @@ export default function AccountPage() {
                     {!wishlistLoaded && <Spinner fullWidth={true} />}
                     {wishlistLoaded && (
                       <>
-                        <WishedProductsGrid>
+                        <div className="grid grid-cols-3 gap-5">
                           {wishedProducts.length > 0 &&
                             wishedProducts.map((wp) => (
                               <ProductBox
@@ -136,7 +136,7 @@ export default function AccountPage() {
                                 }
                               />
                             ))}
-                        </WishedProductsGrid>
+                        </div>
                         {wishedProducts.length === 0 && (
                           <>
                             {session && <p>Your wishlist is empty</p>}
