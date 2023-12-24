@@ -97,9 +97,9 @@ export default function AccountPage() {
       <Header />
       <Center>
         <ColsWrapper>
-          <div>
+          <div className="box">
             <RevealWrapper delay={0}>
-              <WhiteBox>
+              <div>
                 <Tabs
                   tabs={["Orders", "Wishlist"]}
                   active={activeTab}
@@ -149,16 +149,19 @@ export default function AccountPage() {
                     )}
                   </>
                 )}
-              </WhiteBox>
+              </div>
             </RevealWrapper>
           </div>
           <div>
             <RevealWrapper delay={100}>
-              <WhiteBox>
-                <h2>{session ? "Account details" : "Login"}</h2>
+              <div className="box w-[500px]">
+                <div className="text-2xl font-semibold text-rose-500">
+                  {session ? "Account details" : "Login"}
+                </div>
+
                 {!addressLoaded && <Spinner fullWidth={true} />}
                 {addressLoaded && session && (
-                  <>
+                  <div className="flex flex-col gap-1 border-b-2 pb-2 mb-2">
                     <Input
                       type="text"
                       placeholder="Name"
@@ -203,23 +206,22 @@ export default function AccountPage() {
                       name="country"
                       onChange={(ev) => setCountry(ev.target.value)}
                     />
-                    <Button black block onClick={saveAddress}>
+                    <button className="btn-primary p-2" onClick={saveAddress}>
                       Save
-                    </Button>
-                    <hr />
-                  </>
+                    </button>
+                  </div>
                 )}
                 {session && (
-                  <Button primary onClick={logout}>
+                  <button className="btn-primary py-2 px-7" onClick={logout}>
                     Logout
-                  </Button>
+                  </button>
                 )}
                 {!session && (
-                  <Button primary onClick={login}>
+                  <button className="btn-primary p-2 mt-4" onClick={login}>
                     Login with Google
-                  </Button>
+                  </button>
                 )}
-              </WhiteBox>
+              </div>
             </RevealWrapper>
           </div>
         </ColsWrapper>

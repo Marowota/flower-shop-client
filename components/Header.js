@@ -92,10 +92,10 @@ export default function Header() {
     <div className="bg-gradient-to-r from-cyan-200 via-rose-200 to-pink-200">
       <Center>
         <Wrapper>
-          <div className="flex items-center">
+          <div className="flex items-center ml-2">
             <Link
               href={"/"}
-              className="font-semibold font-roboto-slab text-4xl text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-pink-600"
+              className="font-semibold font-roboto-slab text-3xl text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-pink-600"
             >
               Flower Shop
             </Link>

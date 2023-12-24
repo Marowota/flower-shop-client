@@ -47,14 +47,15 @@ export default function SearchPage() {
     <>
       <Header />
       <Center>
-        <InputWrapper>
-          <SearchInput
+        <div className="sticky top-[68px] my-[25px] px-[5px]">
+          <input
+            className="rounded-md p-2.5 text-lg shadow-sm"
             autoFocus
             value={phrase}
             onChange={(ev) => setPhrase(ev.target.value)}
             placeholder="Search for products..."
           />
-        </InputWrapper>
+        </div>
         {!isLoading && phrase !== "" && products.length === 0 && (
           <h2>No products found for query "{phrase}"</h2>
         )}

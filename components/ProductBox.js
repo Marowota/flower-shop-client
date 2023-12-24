@@ -97,7 +97,7 @@ export default function ProductBox({
     setIsWished(nextValue);
   }
   return (
-    <div className="bg-white h-full shadow-lg rounded-md overflow-hidden hover:shadow-lg hover:cursor-pointer transform hover:-translate-y-0.5 transition-transform ease-in-out duration-200">
+    <div className="bg-white h-full w-full shadow-lg rounded-md overflow-hidden hover:shadow-lg hover:cursor-pointer transform hover:-translate-y-0.5 transition-transform ease-in-out duration-200">
       <Link href={url} className="w-full h-full p-0 relative">
         <div>
           <button
@@ -117,13 +117,13 @@ export default function ProductBox({
           <img src={images?.[0]} alt="" className="w-full h-[250px]" />
         </div>
       </Link>
-      <div className="px-5 my-3 text-base">
-        <Link href={url} className="h-14">
+      <div className="px-5 my-3 text-base flex flex-col">
+        <Link href={url} className="h-12">
           {title}
         </Link>
         <div className="flex justify-between">
           <Link href={url}>
-            <div className="text-2xl font-bold text-rose-500 my-1">
+            <div className="text-2xl font-bold text-rose-700">
               {convertPrice((price * (100 - discount)) / 100)} đ
             </div>
           </Link>

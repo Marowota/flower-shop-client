@@ -71,15 +71,15 @@ export default function CategoriesPage({
             </div>
             <CategoryGrid>
               {categoriesProducts[cat._id].map((p, index) => (
-                <RevealWrapper key={index} delay={index * 50}>
+                <RevealWrapper key={index} delay={index * 2}>
                   <ProductBox {...p} wished={wishedProducts.includes(p._id)} />
                 </RevealWrapper>
               ))}
-              <RevealWrapper delay={categoriesProducts[cat._id].length * 50}>
+              <RevealWrapper delay={categoriesProducts[cat._id].length * 2}>
                 <div className="flex h-full w-full">
                   <Link
                     href={"/category/" + cat._id}
-                    className="bg-white shadow-lg rounded-md flex items-center justify-center h-[362px] w-full text-rose-500 font-semibold text-xl hover:bg-pink-50 hover:text-rose-400"
+                    className="bg-white shadow-lg rounded-md flex items-center justify-center h-full w-full text-rose-500 font-semibold text-xl hover:bg-pink-50 hover:text-rose-400"
                   >
                     Show all &rarr;
                   </Link>

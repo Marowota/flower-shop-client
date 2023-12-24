@@ -14,7 +14,7 @@ export default function ProductsGrid({ products, wishedProducts = [] }) {
     <StyledProductsGrid>
       {products?.length > 0 &&
         products.map((product, index) => (
-          <RevealWrapper key={product._id} delay={index * 50}>
+          <RevealWrapper key={product._id} delay={index * 2}>
             <ProductBox
               {...product}
               wished={wishedProducts.includes(product._id)}
