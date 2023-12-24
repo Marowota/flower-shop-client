@@ -43,7 +43,7 @@ export default function ProductPage({ product }) {
               <ProductImages images={product.images} />
             </div>
             <div className="col-span-2 flex flex-col gap-4">
-              <div className="font-semibold text-4xl">{product.title}</div>
+              <div className="font-semibold text-2xl">{product.title}</div>
               <p
                 dangerouslySetInnerHTML={{
                   __html: product?.description.replace(/\n/g, "<br />"),
@@ -65,7 +65,7 @@ export default function ProductPage({ product }) {
               </div>
               <div>
                 <button
-                  className="flex items-center gap-1 border-2 border-pink-400 rounded-md text-pink-600 px-4 py-2 text-lg bg-white hover:ring-ping-400 hover:ring-offset-0 hover:bg-pink-400 hover:text-white"
+                  className="flex items-center gap-1 border-2 border-pink-400 rounded-md text-pink-600 px-4 py-2  bg-white hover:ring-ping-400 hover:ring-offset-0 hover:bg-pink-400 hover:text-white"
                   onClick={() => {
                     addProduct(product._id);
                   }}
