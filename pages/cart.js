@@ -154,7 +154,7 @@ export default function CartPage() {
         <Center>
           <div className="flex items-center justify-center mt-20">
             <div className="box border-2 rounded-lg flex items-center gap-2 justify-center flex-col p-5 ">
-              <h1 className="font-semibold text-2xl text-rose-500 my-2">
+              <h1 className="font-semibold text-2xl text-main-bg my-2">
                 Thanks for your order!
               </h1>
               <p className="font text-lg">
@@ -181,7 +181,7 @@ export default function CartPage() {
         <ColumnsWrapper>
           <RevealWrapper delay={0}>
             <div className="box mb-8">
-              <div className="text-xl font-semibold text-rose-500 mb-2">
+              <div className="text-xl font-semibold text-red-700 mb-2">
                 Cart
               </div>
               {!cartProducts?.length && <div>Your cart is empty</div>}
@@ -282,7 +282,7 @@ export default function CartPage() {
           {!!cartProducts?.length && (
             <RevealWrapper delay={100}>
               <div className="box w-[500px] h-[400px]">
-                <div className="text-xl font-semibold text-rose-500">
+                <div className="text-xl font-semibold text-main-bg">
                   Order information
                 </div>
                 <input

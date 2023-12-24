@@ -89,11 +89,11 @@ export default function ProductReviews({ product }) {
   }
   return (
     <div>
-      <div className="title">Reviews</div>
+      <div className="font-semibold text-2xl text-main-bg">Reviews</div>
       <ColsWrapper>
         <div>
           <div className="box flex flex-col gap-1">
-            <div className="text-xl font-semibold text-rose-500">
+            <div className="text-xl font-semibold text-main-bg">
               Add a review
             </div>
             <div>
@@ -118,7 +118,7 @@ export default function ProductReviews({ product }) {
         </div>
         <div>
           <div className="box">
-            <div className="text-xl font-semibold text-rose-500">
+            <div className="text-xl font-semibold text-main-bg">
               All reviews
             </div>
             {reviewsLoading && <Spinner fullWidth={true} />}

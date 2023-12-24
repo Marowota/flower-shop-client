@@ -97,7 +97,7 @@ export default function ProductBox({
     setIsWished(nextValue);
   }
   return (
-    <div className="bg-white h-full w-full shadow-md rounded-md overflow-hidden hover:shadow-lg hover:cursor-pointer transform hover:-translate-y-px transition-transform ease-in-out duration-200">
+    <div className="bg-white h-full w-full shadow-md rounded-md overflow-hidden hover:shadow-lg hover:cursor-pointer transform hover:-translate-y-0.5 transition-transform ease-in-out duration-200">
       <Link href={url} className="w-full h-full p-0 relative">
         <div>
           <button
@@ -118,12 +118,12 @@ export default function ProductBox({
         </div>
       </Link>
       <div className="px-5 my-3 text-base flex flex-col">
-        <Link href={url} className="h-12 font-bold">
+        <Link href={url} className="h-12 text-main-bg">
           {title}
         </Link>
         <div className="flex justify-between">
           <Link href={url}>
-            <div className="text-1xl font-bold " style={{ color: "#5D3D2E" }}>
+            <div className="text-xl font-bold text-main-bg">
               {convertPrice((price * (100 - discount)) / 100)} đ
             </div>
           </Link>
@@ -153,10 +153,7 @@ export default function ProductBox({
             <div className="text-sm text-gray-400 line-through">
               {convertPrice(price)} đ
             </div>
-            <div
-              className="text-sm flex items-center justify-center font-semibold rounded-md px-1 bg-rose-50"
-              style={{ color: "#5D3D2E" }}
-            >
+            <div className="text-sm flex items-center justify-center font-semibold rounded-md px-1 bg-rose-50 text-main-bg">
               - {discount}%
             </div>
           </div>

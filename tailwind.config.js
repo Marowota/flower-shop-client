@@ -12,8 +12,12 @@ module.exports = {
     extend: {
       backgroundImage: (theme) => ({
         "featured-bg":
-          "url('https://manh-nextjs-ecommerce.s3.amazonaws.com/1702289207863.jpg')",
+          "url('https://manh-nextjs-ecommerce.s3.amazonaws.com/1703435371824.jpg')",
       }),
+      colors: {
+        "main-bg": "#5D3D2E",
+        "second-bg": "#E1CFBB",
+      },
       fontFamily: {
         "roboto-slab": ["Roboto Slab", "serif"],
       },

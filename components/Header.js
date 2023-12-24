@@ -83,8 +83,8 @@ const SideIcons = styled.div`
 `;
 
 export default function Header() {
-  const inactiveLink = "#5D3D2E";
-  const activeLink = "#ffffff";
+  const inactiveLink = "text-main-bg  hover:text-red-700";
+  const activeLink = "text-white hover:text-gray-50";
   const { cartProducts } = useContext(CartContext);
 
   const router = useRouter();
@@ -99,14 +99,13 @@ export default function Header() {
   console.log(pathname);
 
   return (
-    <div style={{ backgroundColor: "#E1CFBB" }}>
+    <div className="bg-second-bg">
       <Center>
         <Wrapper>
           <div className="flex items-center ml-2">
             <Link
               href={"/"}
-              className="flex w-max items-center gap-2 font-semibold font-roboto-slab text-3xl text-transparent bg-clip-text bg-gradient-to-r "
-              style={{ color: "#5D3D2E" }}
+              className="flex w-max items-center gap-2 font-semibold font-roboto-slab text-3xl text-main-bg"
             >
               <div className="flex items-center justify-center">
                 <img
@@ -121,43 +120,37 @@ export default function Header() {
             <div className="flex gap-5">
               <Link
                 href={"/"}
-                style={{
-                  color: checkIsActive("/") ? activeLink : inactiveLink,
-                }}
+                className={checkIsActive("/") ? activeLink : inactiveLink}
               >
                 Home
               </Link>
               <Link
                 href={"/products"}
-                style={{
-                  color: checkIsActive("/products") ? activeLink : inactiveLink,
-                }}
+                className={
+                  checkIsActive("/products") ? activeLink : inactiveLink
+                }
               >
                 All flowers
               </Link>
               <Link
                 href={"/categories"}
-                style={{
-                  color: checkIsActive("/categories")
-                    ? activeLink
-                    : inactiveLink,
-                }}
+                className={
+                  checkIsActive("/categories") ? activeLink : inactiveLink
+                }
               >
                 Categories
               </Link>
               <Link
                 href={"/account"}
-                style={{
-                  color: checkIsActive("/account") ? activeLink : inactiveLink,
-                }}
+                className={
+                  checkIsActive("/account") ? activeLink : inactiveLink
+                }
               >
                 Account
               </Link>
               <Link
                 href={"/cart"}
-                style={{
-                  color: checkIsActive("/cart") ? activeLink : inactiveLink,
-                }}
+                className={checkIsActive("/cart") ? activeLink : inactiveLink}
               >
                 Cart ({cartProducts.length})
               </Link>

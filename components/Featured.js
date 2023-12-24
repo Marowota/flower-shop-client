@@ -73,18 +73,12 @@ export default function Featured({ product }) {
   }
   return (
     <Center>
-      <div
-        className=" bg-cover bg-no-repeat rounded-md mt-[50px] py-5"
-        style={{ backgroundColor: "#F5F5F5" }}
-      >
+      <div className="bg-featured-bg bg-cover bg-no-repeat rounded-md mt-[50px] py-5">
         <div className="grid grid-cols-3 p-5">
           <div className="flex items-center justify-around col-span-2 mx-11">
             <div>
               <RevealWrapper origin={"left"} delay={0}>
-                <div
-                  className="font-bold font-roboto-slab text-transparent text-5xl bg-clip-text bg-gradient-to-r py-5"
-                  style={{ color: "#5D3D2E" }}
-                >
+                <div className="font-bold font-roboto-slab text-5xl py-5 text-main-bg">
                   {product?.title}
                 </div>
                 <div
@@ -100,8 +94,7 @@ export default function Featured({ product }) {
                 <div className="flex gap-2">
                   <Link
                     href={"/product/" + product?._id}
-                    className="btn-primary px-4 flex items-center"
-                    style={{ backgroundColor: "#5D3D2E" }}
+                    className="btn-primary px-4 flex items-center bg-main-bg hover:bg-red-900 hover:ring-1 hover:ring-offset-0 hover:ring-main-bg"
                   >
                     Read more
                   </Link>
@@ -109,7 +102,7 @@ export default function Featured({ product }) {
                     white={1}
                     _id={product._id}
                     src={product.images?.[0]}
-                    className="flex items-center gap-1 border-2 border-pink-400 rounded-md text-pink-600 px-4 py-1  bg-white hover:ring-ping-400 hover:ring-offset-0 hover:bg-rose-500 hover:text-white"
+                    className="flex items-center gap-1 border-2 border-main-bg rounded-md text-main-bg px-4 py-1  bg-white hover:ring-main-bg hover:ring-1 hover:ring-offset-0 hover:bg-slate-50"
                   >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"

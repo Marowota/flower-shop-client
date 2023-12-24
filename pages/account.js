@@ -157,7 +157,7 @@ export default function AccountPage() {
           <div>
             <RevealWrapper delay={100}>
               <div className="box w-[500px]">
-                <div className="text-xl font-semibold text-rose-500">
+                <div className="text-xl font-semibold text-main-bg">
                   {session ? "Account details" : "Login"}
                 </div>
 

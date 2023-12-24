@@ -46,14 +46,16 @@ export default function ProductPage({ product }) {
               <ProductImages images={product.images} />
             </div>
             <div className="col-span-2 flex flex-col gap-4">
-              <div className="font-semibold text-2xl">{product.title}</div>
+              <div className="font-semibold text-2xl text-main-bg">
+                {product.title}
+              </div>
               <p
                 dangerouslySetInnerHTML={{
                   __html: product?.description.replace(/\n/g, "<br />"),
                 }}
               ></p>
               <div className="flex items-center gap-7">
-                <div className="text-2xl font-bold text-rose-500">
+                <div className="text-2xl font-bold text-main-bg">
                   {convertPrice(
                     (product.price * (100 - product.discount)) / 100
                   )}{" "}
@@ -62,7 +64,7 @@ export default function ProductPage({ product }) {
                 <div className="text-base text-gray-400 line-through">
                   {convertPrice(product.price)} đ
                 </div>
-                <div className="text-sm flex items-center justify-center text-rose-500 font-semibold rounded-md px-1 bg-rose-50">
+                <div className="text-sm flex items-center justify-center text-main-bg font-semibold rounded-md px-1 bg-rose-50">
                   -{product.discount}%
                 </div>
               </div>
@@ -71,7 +73,7 @@ export default function ProductPage({ product }) {
                   white={1}
                   _id={product._id}
                   src={product.images?.[0]}
-                  className="flex items-center gap-1 border-2 border-pink-400 rounded-md text-pink-600 px-4 py-1  bg-white hover:ring-ping-400 hover:ring-offset-0 hover:bg-pink-400 hover:text-white"
+                  className="flex items-center gap-1 border-2 border-main-bg rounded-md text-main-bg px-4 py-1  bg-white hover:ring-main-bg hover:ring-offset-0 hover:bg-main-bg hover:text-white"
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"

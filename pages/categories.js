@@ -66,16 +66,10 @@ export default function CategoriesPage({
         {mainCategories.map((cat) => (
           <div key={cat} className="mb-5">
             <div className="flex gap-20 my-3 items-center">
-              <div
-                className="font-semibold text-2xl py-2 "
-                style={{ color: "#5D3D2E" }}
-              >
+              <div className="font-semibold text-2xl py-2 text-main-bg">
                 {cat.name}
               </div>
-              <div
-                className="text-lg hover:text-rose-500 hover:underline"
-                style={{ color: "#5D3D2E" }}
-              >
+              <div className="text-lg hover:text-red-700 hover:underline text-main-bg">
                 <Link href={"/category/" + cat._id}>Show all</Link>
               </div>
             </div>
@@ -89,7 +83,7 @@ export default function CategoriesPage({
                 <div className="flex h-full w-full">
                   <Link
                     href={"/category/" + cat._id}
-                    className="bg-white shadow-md rounded-md flex items-center justify-center h-full w-full text-rose-500 font-semibold text-xl hover:shadow-lg hover:bg-pink-50 hover:text-rose-400"
+                    className="bg-white shadow-md rounded-md flex items-center justify-center h-full w-full text-main-bg font-semibold text-xl hover:shadow-lg hover:bg-pink-50 hover:text-red-700"
                   >
                     Show all &rarr;
                   </Link>
