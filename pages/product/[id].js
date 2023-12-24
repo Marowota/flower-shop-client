@@ -59,7 +59,7 @@ export default function ProductPage({ product }) {
                 <div className="text-base text-gray-400 line-through">
                   {convertPrice(product.price)} đ
                 </div>
-                <div className="bg-rose-500 text-white p-1 rounded-md">
+                <div className="text-sm flex items-center justify-center text-rose-500 font-semibold rounded-md px-1 bg-rose-50">
                   -{product.discount}%
                 </div>
               </div>

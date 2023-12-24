@@ -173,7 +173,7 @@ export default function CartPage() {
         <ColumnsWrapper>
           <RevealWrapper delay={0}>
             <div className="box mb-8">
-              <div className="text-2xl font-semibold text-rose-500 mb-2">
+              <div className="text-xl font-semibold text-rose-500 mb-2">
                 Cart
               </div>
               {!cartProducts?.length && <div>Your cart is empty</div>}
@@ -198,7 +198,7 @@ export default function CartPage() {
                               className="w-[90px] h-[90px] rounded-lg"
                             />
                           </div>
-                          <div className="my-1 text-xl">{product.title}</div>
+                          <div className="my-1 text-base">{product.title}</div>
                         </ProductInfoCell>
                         <td>
                           <div className="flex items-center">
@@ -240,28 +240,28 @@ export default function CartPage() {
                     ))}
                     <tr>
                       <td>
-                        <div className="text-xl my-[15px]">Products</div>
+                        <div className="text-base my-[15px]">Products</div>
                       </td>
                       <td></td>
-                      <td className="text-right text-xl">
+                      <td className="text-right text-base">
                         {convertPrice(productsTotal)} đ
                       </td>
                     </tr>
                     <tr>
                       <td>
-                        <div className="text-xl my-[15px]">Shipping</div>
+                        <div className="text-base my-[15px]">Shipping</div>
                       </td>
                       <td></td>
-                      <td className="text-right text-xl">
+                      <td className="text-right text-base">
                         {convertPrice(parseInt(shippingFee))} đ
                       </td>
                     </tr>
                     <tr className="font-bold">
                       <td>
-                        <div className="text-xl my-[15px]">Total</div>
+                        <div className="text-lg my-[15px]">Total</div>
                       </td>
                       <td></td>
-                      <td className="text-right text-xl">
+                      <td className="text-right text-lg">
                         {convertPrice(productsTotal + parseInt(shippingFee))} đ
                       </td>
                     </tr>
@@ -274,7 +274,7 @@ export default function CartPage() {
           {!!cartProducts?.length && (
             <RevealWrapper delay={100}>
               <div className="box w-[500px] h-[400px]">
-                <div className="text-2xl font-semibold text-rose-500">
+                <div className="text-xl font-semibold text-rose-500">
                   Order information
                 </div>
                 <input
