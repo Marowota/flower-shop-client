@@ -73,12 +73,12 @@ export default function Featured({ product }) {
   }
   return (
     <Center>
-      <div className="bg-featured-bg bg-cover bg-no-repeat rounded-[15px] mt-7 py-5">
+      <div className="bg-featured-bg bg-cover bg-no-repeat rounded-md mt-7 py-5">
         <div className="grid grid-cols-3 p-5">
           <div className="flex items-center justify-around col-span-2 mx-11">
             <div>
               <RevealWrapper origin={"left"} delay={0}>
-                <div className="font-bold font-roboto-slab text-transparent text-6xl bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600 py-5">
+                <div className="font-bold font-roboto-slab text-transparent text-5xl bg-clip-text bg-gradient-to-r from-rose-500 to-purple-600 py-5">
                   {product?.title}
                 </div>
                 <div
@@ -94,7 +94,7 @@ export default function Featured({ product }) {
                 <div className="flex gap-2">
                   <Link
                     href={"/product/" + product?._id}
-                    className="btn-primary text-lg px-4 flex items-center"
+                    className="btn-primary px-4 flex items-center"
                   >
                     Read more
                   </Link>
@@ -102,7 +102,7 @@ export default function Featured({ product }) {
                     white={1}
                     _id={product._id}
                     src={product.images?.[0]}
-                    className="flex items-center gap-1 border-2 border-pink-400 rounded-md text-pink-600 px-4 py-2 text-lg bg-white hover:ring-ping-400 hover:ring-1 hover:ring-offset-0"
+                    className="flex items-center gap-1 border-2 border-pink-400 rounded-md text-pink-600 px-4 py-2 bg-white hover:ring-ping-400 hover:ring-1 hover:ring-offset-0"
                     // onClick={addFeatureToCart}
                   >
                     <svg

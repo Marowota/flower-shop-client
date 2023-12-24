@@ -128,7 +128,7 @@ export default function ProductBox({
             </div>
           </Link>
           <button
-            className="text-rose-500 hover:text-white rounded-md  hover:bg-rose-400 px-2"
+            className="text-rose-500 hover:text-rose-600 rounded-md  hover:bg-rose-50 px-2"
             onClick={() => addProduct(_id)}
           >
             <svg

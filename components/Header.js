@@ -95,7 +95,7 @@ export default function Header() {
           <div className="flex items-center ml-2">
             <Link
               href={"/"}
-              className="font-semibold font-roboto-slab text-3xl text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-pink-600"
+              className="font-semibold font-roboto-slab text-3xl text-transparent bg-clip-text bg-gradient-to-r from-rose-500 to-purple-600"
             >
               Flower Shop
             </Link>
