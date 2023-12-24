@@ -127,14 +127,17 @@ export default function ProductBox({
               {convertPrice((price * (100 - discount)) / 100)} đ
             </div>
           </Link>
-          <button className="text-rose-500" onClick={() => addProduct(_id)}>
+          <button
+            className="text-rose-500 hover:text-white rounded-md  hover:bg-rose-400 px-2"
+            onClick={() => addProduct(_id)}
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
               viewBox="0 0 24 24"
               strokeWidth={1.5}
               stroke="currentColor"
-              className="w-6 h-6 hover:fill-current hover:text-rose-600"
+              className="w-6 h-6"
             >
               <path
                 strokeLinecap="round"
@@ -145,11 +148,11 @@ export default function ProductBox({
           </button>
         </div>
         <Link href={url}>
-          <div className="flex gap-3">
-            <div className="text-base text-gray-400 line-through">
+          <div className="flex gap-3 mt-1">
+            <div className="text-sm text-gray-400 line-through">
               {convertPrice(price)} đ
             </div>
-            <div className="text-base text-gray-500 font-semibold">
+            <div className="text-sm flex items-center justify-center text-rose-500 font-semibold rounded-md px-1 bg-rose-50">
               - {discount}%
             </div>
           </div>
