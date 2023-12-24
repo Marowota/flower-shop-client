@@ -127,18 +127,20 @@ export default function ProductReviews({ product }) {
               reviews.map((review, index) => (
                 <div key={index}>
                   <ReviewWrapper>
-                    <ReviewHeader>
+                    <div className="flex justify-between">
                       <StarsRating
                         size="sm"
                         disabled={true}
                         defaultHowMany={review.stars}
                       />
-                      <time>
-                        {new Date(review.createdAt).toLocaleString("sv-SE")}
-                      </time>
-                    </ReviewHeader>
-                    <h3>{review.title}</h3>
-                    <p>{review.description}</p>
+                      <div className="text-sm">
+                        <time>
+                          {new Date(review.createdAt).toLocaleString("sv-SE")}
+                        </time>
+                      </div>
+                    </div>
+                    <div className="text-2xl font-semibold">{review.title}</div>
+                    <div className="text-base my-1">{review.description}</div>
                   </ReviewWrapper>
                 </div>
               ))}
