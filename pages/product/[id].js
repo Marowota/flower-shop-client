@@ -1,5 +1,6 @@
 import { CartContext } from "@/components/CartContext";
 import Center from "@/components/Center";
+import FlyingButton from "@/components/FlyingButton";
 import Header from "@/components/Header";
 import Meta from "@/components/Meta";
 import ProductImages from "@/components/ProductImages";
@@ -66,11 +67,11 @@ export default function ProductPage({ product }) {
                 </div>
               </div>
               <div>
-                <button
+                <FlyingButton
+                  white={1}
+                  _id={product._id}
+                  src={product.images?.[0]}
                   className="flex items-center gap-1 border-2 border-pink-400 rounded-md text-pink-600 px-4 py-1  bg-white hover:ring-ping-400 hover:ring-offset-0 hover:bg-pink-400 hover:text-white"
-                  onClick={() => {
-                    addProduct(product._id);
-                  }}
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -87,7 +88,7 @@ export default function ProductPage({ product }) {
                     />
                   </svg>
                   Add to cart
-                </button>
+                </FlyingButton>
               </div>
             </div>
           </div>

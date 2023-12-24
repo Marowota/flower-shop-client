@@ -102,8 +102,7 @@ export default function Featured({ product }) {
                     white={1}
                     _id={product._id}
                     src={product.images?.[0]}
-                    className="flex items-center gap-1 border-2 border-pink-400 rounded-md text-pink-600 px-4 py-2 bg-white hover:ring-ping-400 hover:ring-1 hover:ring-offset-0"
-                    // onClick={addFeatureToCart}
+                    className="flex items-center gap-1 border-2 border-pink-400 rounded-md text-pink-600 px-4 py-1  bg-white hover:ring-ping-400 hover:ring-offset-0 hover:bg-rose-500 hover:text-white"
                   >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"

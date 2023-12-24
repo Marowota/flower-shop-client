@@ -127,9 +127,10 @@ export default function ProductBox({
               {convertPrice((price * (100 - discount)) / 100)} đ
             </div>
           </Link>
-          <button
-            className="text-rose-500 hover:text-rose-600 rounded-md  hover:bg-rose-50 px-2"
-            onClick={() => addProduct(_id)}
+          <FlyingButton
+            _id={_id}
+            src={images?.[0]}
+            className="flex items-center gap-1 border-2 border-pink-400 rounded-md text-pink-600 px-4 py-1  bg-white hover:ring-ping-400 hover:ring-offset-0 hover:bg-rose-500 hover:text-white"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -145,7 +146,7 @@ export default function ProductBox({
                 d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z"
               />
             </svg>
-          </button>
+          </FlyingButton>
         </div>
         <Link href={url}>
           <div className="flex gap-3 mt-1">
