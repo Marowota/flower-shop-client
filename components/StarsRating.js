@@ -31,7 +31,7 @@ const StarWrapper = styled.button`
   border: 0;
   display: inline-block;
   background-color: transparent;
-  color: ${primary};
+  color: #ffa94d;
 `;
 
 export default function StarsRating({

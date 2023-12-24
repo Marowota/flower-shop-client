@@ -75,10 +75,10 @@ export default function Featured({ product }) {
     <Center>
       <div className="bg-featured-bg bg-cover bg-no-repeat rounded-[15px] mt-7 py-5">
         <div className="grid grid-cols-3 p-5">
-          <div className="flex items-center justify-around col-span-2">
+          <div className="flex items-center justify-around col-span-2 mx-11">
             <div>
               <RevealWrapper origin={"left"} delay={0}>
-                <div className="font-bold font-roboto-slab text-transparent text-7xl bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600 py-5">
+                <div className="font-bold font-roboto-slab text-transparent text-6xl bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600 py-5">
                   {product?.title}
                 </div>
                 <div
@@ -125,7 +125,7 @@ export default function Featured({ product }) {
               </RevealWrapper>
             </div>
           </div>
-          <div className="col-span-1">
+          <div className="col-span-1" mx-1>
             <RevealWrapper delay={0}>
               <div className="flex items-center justify-center">
                 <img

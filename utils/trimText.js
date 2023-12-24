@@ -1,4 +1,4 @@
-const maxTitleLength = 300;
+const maxTitleLength = 350;
 
 const trimmedText = (title) => {
   return title.length > maxTitleLength
