@@ -149,15 +149,21 @@ export default function CartPage() {
   if (isSuccess) {
     return (
       <>
+        <Meta title="Success" />
         <Header />
         <Center>
           <div className="flex items-center justify-center mt-20">
-            <div className="border-2 rounded-lg flex items-center justify-center flex-col p-5 ">
-              <h1 className="title">Thanks for your order!</h1>
+            <div className="box border-2 rounded-lg flex items-center gap-2 justify-center flex-col p-5 ">
+              <h1 className="font-semibold text-2xl text-rose-500 my-2">
+                Thanks for your order!
+              </h1>
               <p className="font text-lg">
                 We will email you when your order will be sent.
               </p>
-              <button onClick={handleBackHomePage} className="btn-gradient">
+              <button
+                onClick={handleBackHomePage}
+                className="btn-primary p-2 my-3"
+              >
                 Back to home page!
               </button>
             </div>
