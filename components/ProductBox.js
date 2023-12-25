@@ -130,7 +130,7 @@ export default function ProductBox({
           <FlyingButton
             _id={_id}
             src={images?.[0]}
-            className="flex items-center gap-1 border-2 border-pink-400 rounded-md text-pink-600 px-4 py-1  bg-white hover:ring-ping-400 hover:ring-offset-0 hover:bg-rose-500 hover:text-white"
+            className="flex items-center gap-1 border-2 border-main-bg rounded-md text-main-bg px-4 py-1  bg-white hover:ring-main-bg hover:ring-offset-0 hover:bg-main-bg hover:text-white"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
