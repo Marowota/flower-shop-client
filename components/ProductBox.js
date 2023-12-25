@@ -1,6 +1,4 @@
 import styled from "styled-components";
-import Button from "./Button";
-import CartIcon from "./icons/CartIcon";
 import Link from "next/link";
 import { useContext, useState } from "react";
 import { CartContext } from "./CartContext";
@@ -9,7 +7,6 @@ import FlyingButton from "./FlyingButton";
 import HeartOutlineIcon from "./icons/HeartOutlineIcon";
 import HeartSolidIcon from "./icons/HeartSolidIcon";
 import axios from "axios";
-import next from "next";
 
 const ProductWrapper = styled.div`
   width: 270px;
@@ -114,7 +111,11 @@ export default function ProductBox({
               <HeartOutlineIcon className="w-full h-full" />
             )}
           </button>
-          <img src={images?.[0]} alt="" className="w-full h-[250px]" />
+          <img
+            src={images?.[0]}
+            alt=""
+            className="w-full h-[250px] rounded-lg"
+          />
         </div>
       </Link>
       <div className="px-5 my-3 text-base flex flex-col">
@@ -128,14 +129,15 @@ export default function ProductBox({
             </div>
           </Link>
           <FlyingButton
+            white={1}
             _id={_id}
             src={images?.[0]}
-            className="flex items-center gap-1 border-2 border-main-bg rounded-md text-main-bg px-4 py-1  bg-white hover:ring-main-bg hover:ring-offset-0 hover:bg-main-bg hover:text-white"
+            className=" bg-white hover:ring-main-bg hover:ring-offset-0 hover:bg-main-bg hover:text-white"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
-              viewBox="0 0 24 24"
+              viewBox="0 0 22 22"
               strokeWidth={1.5}
               stroke="currentColor"
               className="w-6 h-6"
