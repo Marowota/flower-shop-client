@@ -17,6 +17,8 @@ module.exports = {
       colors: {
         "main-bg": "#5D3D2E",
         "second-bg": "#E1CFBB",
+        "feature-bg": "#F5F5F5",
+        "feature1-bg": "#1098ad",
       },
       fontFamily: {
         "roboto-slab": ["Roboto Slab", "serif"],
